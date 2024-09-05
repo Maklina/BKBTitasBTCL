@@ -1,0 +1,42 @@
+2021-01-19 09:58:54,878 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 09:58:56,896 [6] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:127.0.0.1
+2021-01-19 09:59:01,374 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 09:59:01,395 [6] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:127.0.0.1
+2021-01-19 09:59:06,581 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 09:59:06,721 [8] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:127.0.0.1
+2021-01-19 10:00:03,052 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4001 from IP:127.0.0.1
+2021-01-19 10:00:03,125 [8] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4001 from IP:127.0.0.1
+2021-01-19 10:13:03,350 [23] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Demand Draft Request:bank/api/v1/demand-note/invoice/11360000008874
+2021-01-19 10:13:03,883 [23] ERROR BKBTitas.Controllers.NMBillnDDController - {"timestamp":"2021-01-19T04:18:04.817+0000","status":401,"error":"Unauthorized","message":"Unable to authenticate user","path":"/bank_nonmetered/bank/api/v1/demand-note/invoice/11360000008874"}
+2021-01-19 10:13:27,274 [20] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Request: bank/api/v1/customers/0119100297510
+2021-01-19 10:13:27,390 [20] ERROR BKBTitas.Controllers.NMBillnDDController - {"timestamp":"2021-01-19T04:18:28.448+0000","status":401,"error":"Unauthorized","message":"Unable to authenticate user","path":"/bank_nonmetered/bank/api/v1/customers/0119100297510"}
+2021-01-19 10:23:45,099 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 10:23:45,457 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-01-19 10:23:45,639 [5] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in E:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 24
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in E:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 63
+2021-01-19 10:24:35,502 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 10:25:50,939 [9] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 10:25:51,195 [9] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-01-19 10:25:51,233 [9] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in E:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in E:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-01-19 10:25:56,232 [9] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 10:25:56,241 [9] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-01-19 10:25:56,253 [9] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in E:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in E:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-01-19 10:26:36,511 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 10:27:06,026 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-01-19 10:29:41,997 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 10:29:43,125 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-01-19 11:32:47,515 [84] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 11:32:48,896 [84] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:127.0.0.1
+2021-01-19 11:32:52,723 [83] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 11:32:52,781 [83] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-01-19 11:34:17,225 [79] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 11:34:17,236 [79] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-01-19 11:44:47,719 [69] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 11:44:49,186 [69] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-01-19 12:05:06,320 [65] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-01-19 12:05:06,763 [65] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1

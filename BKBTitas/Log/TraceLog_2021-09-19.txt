@@ -1,0 +1,237 @@
+2021-09-19 10:13:16,132 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 10:13:16,461 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-09-19 10:14:09,175 [14] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 10:14:09,710 [14] ERROR BKBTitas.Controllers.BTCLController - ErrorObject reference not set to an instance of an object.
+2021-09-19 10:14:49,297 [7] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 10:14:50,481 [7] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tBillDetailDto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><RowNumber>1</RowNumber><BillNo>C2104210802333304591</BillNo><BillMonth>8</BillMonth><BillYear>2021</BillYear><BTCLAmount>10000</BTCLAmount><OverdueAmount>0</OverdueAmount><VAT>0</VAT><BillPayStatus>U</BillPayStatus><Name>Apu Deb Nath</Name><ServiceNumber xsi:nil="true" /></tBillDetailDto>
+2021-09-19 10:14:50,495 [7] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><BTCLBillDetailsModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><id>0</id><RowNumber>1</RowNumber><TxnNumber>BKB919000481</TxnNumber><PhoneNumber /><AccountNumber /><BillNo>C2104210802333304591</BillNo><BillMonth>8</BillMonth><BillYear>2021</BillYear><BTCLAmount>10000</BTCLAmount><OverdueAmount>0</OverdueAmount><VAT>0</VAT><Name>Apu Deb Nath</Name><BillPayStatus>U</BillPayStatus><CollectionDate xsi:nil="true" /><ConfirmAmount>0</ConfirmAmount></BTCLBillDetailsModel>
+2021-09-19 10:15:04,268 [8] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tBillPaymentRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><TXNNumber>BKB919000481</TXNNumber><UserID>BKBank01</UserID><TokenNumber>349130878675512423</TokenNumber><BranchCode>3013</BranchCode><BankCode>020</BankCode><BillNo>C2104210802333304591</BillNo><PaidAmount>10000</PaidAmount><BillStatus>U</BillStatus></tBillPaymentRequest>
+2021-09-19 10:15:04,297 [8] ERROR BKBTitas.Controllers.BTCLController - Bill payment successful. Transaction number BKB919000481
+2021-09-19 11:36:12,255 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 11:36:14,063 [6] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-09-19 11:43:33,047 [13] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 11:43:33,468 [13] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tBillDetailDto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><RowNumber>1</RowNumber><BillNo>R1412336</BillNo><BillMonth>1</BillMonth><BillYear>2021</BillYear><BTCLAmount>67000</BTCLAmount><OverdueAmount>0</OverdueAmount><VAT>5300</VAT><BillPayStatus>U</BillPayStatus><Name>??? ??? ??????</Name><ServiceNumber xsi:nil="true" /></tBillDetailDto>
+2021-09-19 11:43:33,585 [13] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><BTCLBillDetailsModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><id>0</id><RowNumber>1</RowNumber><TxnNumber>BKB919000486</TxnNumber><PhoneNumber /><AccountNumber /><BillNo>R1412336</BillNo><BillMonth>1</BillMonth><BillYear>2021</BillYear><BTCLAmount>67000</BTCLAmount><OverdueAmount>0</OverdueAmount><VAT>5300</VAT><Name>??? ??? ??????</Name><BillPayStatus>U</BillPayStatus><CollectionDate xsi:nil="true" /><ConfirmAmount>0</ConfirmAmount></BTCLBillDetailsModel>
+2021-09-19 11:44:24,877 [13] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 11:45:02,428 [13] ERROR BKBTitas.Controllers.BTCLController - ErrorObject reference not set to an instance of an object.
+2021-09-19 11:45:27,133 [13] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 11:45:56,698 [13] ERROR BKBTitas.Controllers.BTCLController - ErrorObject reference not set to an instance of an object.
+2021-09-19 11:51:09,534 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 11:51:12,105 [8] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-09-19 11:51:40,097 [7] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 12:03:29,932 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 12:03:31,338 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-09-19 12:03:54,921 [7] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 12:03:55,253 [7] ERROR BKBTitas.Controllers.BTCLController - Error:35-The PhoneNumber can not find info.
+2021-09-19 12:04:18,035 [7] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 12:04:18,085 [7] ERROR BKBTitas.Controllers.BTCLController - Error:3-Invaild Request
+2021-09-19 12:04:37,549 [8] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 12:04:37,633 [8] ERROR BKBTitas.Controllers.BTCLController - Error:35-The PhoneNumber can not find info.
+2021-09-19 12:05:22,140 [9] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 12:05:22,187 [9] ERROR BKBTitas.Controllers.BTCLController - Error:36-The AccountNo can not find info
+2021-09-19 12:05:37,564 [8] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 12:05:37,726 [8] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><BTCLBillDetailsModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><id>0</id><RowNumber>1</RowNumber><TxnNumber>BKB919000494</TxnNumber><PhoneNumber /><AccountNumber /><BillNo>R1412336</BillNo><BillMonth>1</BillMonth><BillYear>2021</BillYear><BTCLAmount>67000</BTCLAmount><OverdueAmount>0</OverdueAmount><VAT>5300</VAT><Name>??? ??? ??????</Name><BillPayStatus>U</BillPayStatus><CollectionDate xsi:nil="true" /><ConfirmAmount>0</ConfirmAmount></BTCLBillDetailsModel>
+2021-09-19 12:05:59,036 [8] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 12:05:59,703 [8] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><BTCLBillDetailsModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><id>0</id><RowNumber>1</RowNumber><TxnNumber>BKB919000495</TxnNumber><PhoneNumber>02222202222</PhoneNumber><AccountNumber /><BillNo>R1412336</BillNo><BillMonth>1</BillMonth><BillYear>2021</BillYear><BTCLAmount>67000</BTCLAmount><OverdueAmount>0</OverdueAmount><VAT>5300</VAT><Name>??? ??? ??????</Name><BillPayStatus>U</BillPayStatus><ServiceNumber>02222202222</ServiceNumber><CollectionDate xsi:nil="true" /><ConfirmAmount>0</ConfirmAmount></BTCLBillDetailsModel>
+2021-09-19 12:06:20,903 [8] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 12:06:21,004 [8] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><BTCLBillDetailsModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><id>0</id><RowNumber>1</RowNumber><TxnNumber>BKB919000496</TxnNumber><PhoneNumber /><AccountNumber /><BillNo>R1412336</BillNo><BillMonth>1</BillMonth><BillYear>2021</BillYear><BTCLAmount>67000</BTCLAmount><OverdueAmount>0</OverdueAmount><VAT>5300</VAT><Name>??? ??? ??????</Name><BillPayStatus>U</BillPayStatus><CollectionDate xsi:nil="true" /><ConfirmAmount>0</ConfirmAmount></BTCLBillDetailsModel>
+2021-09-19 12:19:54,543 [9] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 12:19:55,879 [9] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-09-19 12:26:46,997 [16] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 12:26:48,411 [16] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-09-19 12:38:28,182 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 12:38:31,449 [8] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-09-19 12:43:41,385 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 12:43:42,836 [8] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-09-19 15:47:20,207 [9] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 15:47:20,732 [9] ERROR BKBTitas.Controllers.LoginController - System.Data.Entity.Core.MetadataException: Unable to load the specified metadata resource.
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 40
+2021-09-19 15:47:23,150 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 15:47:23,189 [5] ERROR BKBTitas.Controllers.LoginController - System.Data.Entity.Core.MetadataException: Unable to load the specified metadata resource.
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 40
+2021-09-19 15:47:24,460 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 15:47:24,491 [5] ERROR BKBTitas.Controllers.LoginController - System.Data.Entity.Core.MetadataException: Unable to load the specified metadata resource.
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 40
+2021-09-19 15:47:25,341 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 15:47:25,372 [5] ERROR BKBTitas.Controllers.LoginController - System.Data.Entity.Core.MetadataException: Unable to load the specified metadata resource.
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 40
+2021-09-19 15:47:26,098 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 15:47:26,130 [7] ERROR BKBTitas.Controllers.LoginController - System.Data.Entity.Core.MetadataException: Unable to load the specified metadata resource.
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 40
+2021-09-19 15:47:26,858 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 15:47:26,892 [8] ERROR BKBTitas.Controllers.LoginController - System.Data.Entity.Core.MetadataException: Unable to load the specified metadata resource.
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 40
+2021-09-19 17:04:57,675 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 17:04:57,821 [6] ERROR BKBTitas.Controllers.LoginController - System.Data.Entity.Core.MetadataException: Unable to load the specified metadata resource.
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 40
+2021-09-19 17:04:59,534 [9] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 17:04:59,565 [9] ERROR BKBTitas.Controllers.LoginController - System.Data.Entity.Core.MetadataException: Unable to load the specified metadata resource.
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 40
+2021-09-19 17:08:39,635 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 17:08:41,167 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-09-19 17:24:07,729 [26] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 17:24:09,076 [26] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-09-19 17:26:18,798 [26] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-09-19 17:26:19,023 [26] ERROR BKBTitas.Controllers.BTCLController - Error:35-The PhoneNumber can not find info.
+2021-09-19 17:29:04,559 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-19 17:29:05,960 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1

@@ -1,0 +1,254 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h3 style="text-align:center">TITAS Gas Online Bill Collection Report</h3>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#btnBrDetail").click(function () {
+            debugger;
+            BrDetailsNonMeterReport();
+        });
+        $("#btnZnDetail").click(function () {
+            debugger;
+            ZoneWiseDetailsNM();
+        });
+
+        $("#btnBrSummary").click(function () {
+            debugger;
+            BrWiseSummaryNM();
+        });
+        $("#btnZnSummary").click(function () {
+            debugger;
+            ZoneWiseSummaryNM();
+        });
+    
+        ////////////////////////////////
+        $("#btnBrDetailM").click(function () {
+            debugger;
+            BrMeteredDetailReport();
+        });
+
+        $("#btnZnDetailM").click(function () {
+            debugger;
+            ZoneWiseMeteredDetail();
+        });
+        $("#btnBrSummaryM").click(function () {
+            debugger;
+            BrMeteredSummaryReport();
+        });
+
+        $("#btnZnSummaryM").click(function () {
+            debugger;
+            ZoneWiseMeteredSummary();
+        });
+        return false;
+    });
+
+    function BrDetailsNonMeterReport() {
+        debugger;
+        var popup;
+        var branchCode = '@Session["BranchCode"]';
+        var userRole = '@Session["userRole"]';
+        var dtFrom = $("#dateFrom").val() == null ? new Date() : $("#dateFrom").val();
+        var dtTo = $("#dateTo").val() == null ? new Date() : $("#dateTo").val();
+        var url = '@Url.Action("NonMeterBillDetails.aspx", "ReportFile/ASPXFile")' + "?dtFrom=" + dtFrom + "&dtTo=" + dtTo + "&branchCode=" + branchCode + "&type=brWiseDetails" + "&userRole=" + userRole;
+        popup = window.open(url);
+        popup.focus();
+    }
+    function BrWiseSummaryNM() {
+        debugger;
+        var popup;
+        var branchCode = '@Session["BranchCode"]';
+        var userRole = '@Session["userRole"]';
+        var dtFrom = $("#dateFrom").val() == null ? new Date() : $("#dateFrom").val();
+        var dtTo = $("#dateTo").val() == null ? new Date() : $("#dateTo").val();
+        var url = '@Url.Action("SummaryReportNonMetered.aspx", "ReportFile/ASPXFile")' + "?dtFrom=" + dtFrom + "&dtTo=" + dtTo + "&branchCode=" + branchCode + "&userRole=" + userRole;
+        popup = window.open(url);
+        popup.focus();
+    }
+    function ZoneWiseDetailsNM() {
+        debugger;
+        var popup;
+        var branchCode = '@Session["BranchCode"]';
+        var userRole = '@Session["userRole"]';
+        var dtFrom = $("#dateFrom").val() == null ? new Date() : $("#dateFrom").val();
+        var dtTo = $("#dateTo").val() == null ? new Date() : $("#dateTo").val();
+        var url = '@Url.Action("NonMeterBillDetails.aspx", "ReportFile/ASPXFile")' + "?dtFrom=" + dtFrom + "&dtTo=" + dtTo + "&branchCode=" + branchCode + "&type=znWiseDetails" + "&userRole=" + userRole;
+        popup = window.open(url);
+        popup.focus();
+    }
+    function ZoneWiseSummaryNM() {
+        debugger;
+        var popup;
+        var branchCode = '@Session["BranchCode"]';
+        var userRole = '@Session["userRole"]';
+        var dtFrom = $("#dateFrom").val() == null ? new Date() : $("#dateFrom").val();
+        var dtTo = $("#dateTo").val() == null ? new Date() : $("#dateTo").val();
+        var url = '@Url.Action("ZoneWiseSummaryNonMetered.aspx", "ReportFile/ASPXFile")' + "?dtFrom=" + dtFrom + "&dtTo=" + dtTo + "&branchCode=" + branchCode + "&userRole=" + userRole;
+        popup = window.open(url);
+        popup.focus();
+    }
+ 
+    //////////////////////////Metered//////////////////////////
+
+    function BrMeteredDetailReport() {
+        debugger;
+        var popup;
+        var branchCode = '@Session["BranchCode"]';
+        var userRole = '@Session["userRole"]';
+        var dtFrom = $("#dateFrom").val() == null ? new Date() : $("#dateFrom").val();
+        var dtTo = $("#dateTo").val() == null ? new Date() : $("#dateTo").val();
+        var url = '@Url.Action("TodayReport.aspx", "ReportFile/ASPXFile")' + "?dtFrom=" + dtFrom + "&dtTo=" + dtTo + "&branchCode=" + branchCode + "&type=brWiseDetails" + "&userRole=" + userRole;
+        popup = window.open(url);
+        popup.focus();
+    }
+
+    function BrMeteredSummaryReport() {
+        debugger;
+        var popup;
+        var branchCode = '@Session["BranchCode"]';
+        var userRole = '@Session["userRole"]';
+        var dtFrom = $("#dateFrom").val() == null ? new Date() : $("#dateFrom").val();
+        var dtTo = $("#dateTo").val() == null ? new Date() : $("#dateTo").val();
+        var url = '@Url.Action("TodaySummaryReport.aspx", "ReportFile/ASPXFile")' + "?dtFrom=" + dtFrom + "&dtTo=" + dtTo + "&branchCode=" + branchCode + "&userRole=" + userRole;
+        popup = window.open(url);
+        popup.focus();
+    }
+    function ZoneWiseMeteredDetail() {
+        debugger;
+        var popup;
+        var branchCode = '@Session["BranchCode"]';
+        var userRole = '@Session["userRole"]';
+        var dtFrom = $("#dateFrom").val() == null ? new Date() : $("#dateFrom").val();
+        var dtTo = $("#dateTo").val() == null ? new Date() : $("#dateTo").val();
+        var url = '@Url.Action("TodayReport.aspx", "ReportFile/ASPXFile")' + "?dtFrom=" + dtFrom + "&dtTo=" + dtTo + "&branchCode=" + branchCode + "&type=znWiseDetails" + "&userRole=" + userRole;
+        popup = window.open(url);
+        popup.focus();
+    }
+    function ZoneWiseMeteredSummary() {
+        debugger;
+        var popup;
+        var branchCode = '@Session["BranchCode"]';
+        var userRole = '@Session["userRole"]';
+        var dtFrom = $("#dateFrom").val() == null ? new Date() : $("#dateFrom").val();
+        var dtTo = $("#dateTo").val() == null ? new Date() : $("#dateTo").val();
+        var url = '@Url.Action("ZoneWiseSummary.aspx", "ReportFile/ASPXFile")' + "?dtFrom=" + dtFrom + "&dtTo=" + dtTo + "&branchCode=" + branchCode + "&userRole=" + userRole;
+        popup = window.open(url);
+        popup.focus();
+    }
+
+</script>
+
+<fieldset>
+    <legend>Search Parameter</legend>
+    <div class="row">
+        <div class="col-md-3">
+            @Html.Label("Date From", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.Editor("dateFrom", new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+        </div>
+        <div class="col-md-3">
+            @Html.Label("Date To", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.Editor("dateTo", new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+        </div>
+    </div>
+</fieldset>
+<hr />
+<fieldset>
+    <legend>NON METERED REPORT</legend>
+    <div class="row">
+        <div class="col-md-3">
+            <input type="submit" value="Branch Wise Details" id="btnBrDetail" class="btn btn-default btn-primary" />
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="Zone Wise Details" id="btnZnDetail" class="btn btn-default btn-primary" />
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="Branch Wise Summary" id="btnBrSummary" class="btn btn-default btn-primary" />
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="Zone Wise Summary" id="btnZnSummary" class="btn btn-default btn-primary" />
+        </div>
+    </div>
+</fieldset>
+<hr />
+<fieldset>
+    <legend>METERED REPORT</legend>
+    <div class="row">
+        <div class="col-md-3">
+            <input type="submit" value="Branch Wise Details" id="btnBrDetailM" class="btn btn-default btn-primary" />
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="Zone Wise Details" id="btnZnDetailM" class="btn btn-default btn-primary" />
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="Branch Wise Summary" id="btnBrSummaryM" class="btn btn-default btn-primary" />
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="Zone Wise Summary" id="btnZnSummaryM" class="btn btn-default btn-primary" />
+        </div>
+    </div>
+</fieldset>
+
+
+@*<div class="row">
+        <table class="tbale" align="center" border="1">
+            <tr>
+                <th>Report Name</th>
+                <th>Report Parameter</th>
+                <th>Generate Report</th>
+            </tr>
+            <tr>
+                <td>Branch Wise Details Collection Report (Non-Metered)</td>
+                <td>
+                    Date From:<input type="date" id="dtFrom" name="dtFrom" />
+                    Date To:<input type="date" id="dtTo" name="dtTo" />
+                </td>
+                <td align="center"><input type="submit" class="btn btn-primary block" value="Today" onclick=ShowTodayNonMeterReport(); /></td>
+            </tr>
+            <tr>
+                <td>Zone Wise Details Collection Report (Non-Metered)</td>
+                <td>
+                    Date From:<input type="date" id="dtFrom" name="dtFrom" />
+                    Date To:<input type="date" id="dtTo" name="dtTo" />
+                </td>
+                <td align="center"><input type="submit" class="btn btn-primary block" value="Today" onclick=ShowTodayNonMeterReport(); /></td>
+            </tr>
+            <tr>
+                <td>Branch Daily Collection Report. (Metered)</td>
+                <td>
+                    Date From:<input type="date" id="dtFromM" name="dtFromM" />
+                    Date To:<input type="date" id="dtToM" name="dtToM" />
+                </td>
+                <td align="center"><input type="submit" class="btn btn-primary block" value="Today" onclick=ShowTodayMeteredReport(); /></td>
+            </tr>
+
+            <tr>
+                <td>Branch Wise Summary Report:</td>
+                <td></td>
+                <td align="center"><input type="submit" class="btn btn-primary block" value="Today" onclick=ShowTodaySummaryReport(); /></td>
+            </tr>
+            <tr>
+                <td>Zone Wise Summary Report</td>
+                <td></td>
+                <td align="center"><input type="submit" class="btn btn-primary block" value="Zone Wise Summary" width="100" onclick=ZoneWiseSummary(); /></td>
+            </tr>
+
+            <tr>
+                <td>Branch Wise Summary Report(Non-Metered)</td>
+                <td></td>
+                <td align="center"><input type="submit" class="btn btn-primary block" value="Branch Wise Summary" onclick=ShowTodaySummaryReportNM(); /></td>
+            </tr>
+            <tr>
+                <td>Zone Wise Summary Report(Non-Metered)</td>
+                <td></td>
+                <td align="center"><input type="submit" class="btn btn-primary block" value="Zone Wise Summary" width="100" onclick=ZoneWiseSummaryNM(); /></td>
+            </tr>
+            <tr>
+                <td>Branch Zone Wise Summary Report(Non-Metered)</td>
+                <td></td>
+                <td align="center"><input type="submit" class="btn btn-primary block" value="Zone Wise Summary" width="100" onclick=BranchZoneWiseSummaryNM(); /></td>
+            </tr>
+        </table>
+    </div>*@

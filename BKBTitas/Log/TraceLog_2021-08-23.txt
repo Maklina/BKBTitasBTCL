@@ -1,0 +1,8 @@
+2021-08-23 14:18:53,354 [9] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-08-23 14:18:53,827 [9] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:127.0.0.1
+2021-08-23 14:19:00,831 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-08-23 14:19:00,862 [5] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:127.0.0.1
+2021-08-23 14:19:08,118 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-08-23 14:19:08,134 [5] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:127.0.0.1
+2021-08-23 14:19:16,293 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-08-23 14:19:16,321 [8] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1

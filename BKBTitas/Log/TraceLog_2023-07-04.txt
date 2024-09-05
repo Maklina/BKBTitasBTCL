@@ -1,0 +1,10 @@
+2023-07-04 14:32:48,563 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-07-04 14:32:49,256 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-07-04 16:16:15,838 [9] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-07-04 16:16:16,453 [9] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-07-04 16:17:44,208 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:::1
+2023-07-04 16:17:44,593 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:::1
+2023-07-04 16:20:20,468 [10] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2023-07-04 16:20:20,636 [10] DEBUG BKBTitas.Controllers.BTCLController - <?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><ns:BillResponse xmlns:ns="http://com.ztesoft.zsmart/xsd"><TXNNumber></TXNNumber><ResponseCode>35</ResponseCode><Message>The PhoneNumber can not find info.</Message></ns:BillResponse></soapenv:Body></soapenv:Envelope>
+2023-07-04 16:52:02,117 [57] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:::1
+2023-07-04 16:52:02,337 [57] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:::1

@@ -1,0 +1,278 @@
+﻿@model BKBTitas.Models.ViewModel.BillViewModel
+
+@{
+    ViewBag.Title = "Non-Metered Bill";
+}
+
+<h4 style="text-align:center">TITAS GAS(NON METERED) ONLINE BILL COLLECTION</h4>
+<h5 style="color:green;font-weight:bold">@TempData["sucMsg"]</h5>
+<h5 style="color:red;font-weight:bold">@TempData["errMsg"]</h5>
+<h5 style="color:red;font-weight:bold">@TempData["retMsg"]</h5>
+<div id="divProcessing" class="modal">
+    <img src="~/Images/ajax-loader.gif" />
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <fieldset class="scheduler-border" style="align-items:center">
+        <div class="row">
+            <div class="col-md-3" style="color:red;font-weight:bold">
+                @Html.Label("Customer Code", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.customerId, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off",@placeholder="Input customer ID" } })
+                @Html.ValidationMessageFor(model => model.customerId, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3">
+                @Html.Label("Customer full code", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.customerCode, new { htmlAttributes = new { @class = "form-control  input-sm", @readonly = "true" } })
+                @Html.HiddenFor(model => model.payId, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.customerCode, "", new { @class = "text-danger" })
+            </div>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#divProcessing").hide();
+                    $("#customerId").focus();
+                    $("#customerId").on("change", function () {
+                        debugger;
+                        $("#divProcessing").show();
+                        //alert("Calling method");
+                        $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("getCustomerData")',
+                            dataType: 'json',
+                            data: { customerCode: $("#customerId").val() },
+                            success: function (data) {
+                                if (data.status == "success") {
+                                    $("#payId").val(data.data.payId)
+                                    $("#customerCode").val(data.data.customerCode);
+                                    $("#customerName").val(data.data.customerName);
+                                    $("#mobile").val(data.data.mobile);
+                                    $("#connectionAddress").val(data.data.connectionAddress);
+                                    $("#applicationSummary").val(data.data.applicationSummary);
+                                    $("#surchargeAmount").val(0);
+                                   
+                                    console.log(data)
+                                    $("#divProcessing").hide();
+                                } else {
+                                    $("#divProcessing").hide();
+                                    $("#customerId").val("");
+                                    $("#surchargeAmount").val(0);
+                                    alert(data.status + " " + data.message);
+                                }
+                            },
+                            error: function (ex) {
+                                //$("#customerMobile").val('');
+                                alert('No Data Found');
+                            }
+                        });
+                        return false;
+                    });
+                });
+            </script>
+        </div>
+    </fieldset>
+    <fieldset class="scheduler-border">
+        <legend style="font-size:15px;font-weight:bold;">Customer Details</legend>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.customerName, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.customerName, new { htmlAttributes = new { @class = "form-control  input-sm", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.customerName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.connectionAddress, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.connectionAddress, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.connectionAddress, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3">
+                @Html.Label("Appliance Summary", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.applicationSummary, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.applicationSummary, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3" style="color:red;font-weight:bold">
+                @Html.LabelFor(model => model.mobile, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.mobile, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.mobile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="scheduler-border">
+        <legend style="font-size:15px;font-weight:bold;">Transaction Details</legend>
+        <div class="row">
+            <div class="col-md-4" style="color:red;font-weight:bold">
+                @Html.Label("Bill Period(mmyy,mmyy)", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.particulars, new { htmlAttributes = new { @class = "form-control input-sm", @placeholder = "Ex: mmyy,mmyy" } })
+            </div>
+            <div class="col-md-2" style="color:red;font-weight:bold">
+                @Html.Label("Bill Amount", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoiceAmount, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.invoiceAmount, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-2" style="color:red;font-weight:bold">
+                @Html.LabelFor(model => model.surchargeAmount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.surchargeAmount, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off",@Value = "0" } })
+                @Html.ValidationMessageFor(model => model.surchargeAmount, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.paidAmount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.paidAmount, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.paidAmount, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-2" style="color:red;font-weight:bold">
+                @Html.Label("Confrim Total Bill Amt", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.totalAmount, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.totalAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </fieldset>
+    <br />
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            <input type="submit" id="btnSubmit" value="Submit" class="btn btn-default btn-primary" />
+            &nbsp;&nbsp;&nbsp;@Html.ActionLink("Clear", "NMBill",null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+    <fieldset class="scheduler-border">
+        <legend style="font-size:15px;font-weight:bold;">Successful Transaction Confirmation</legend>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.paymentId, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.payId, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.bank, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.bank, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Amount", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.surcharge, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.surcharge, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.total, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.total, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.voucherDate, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.voucherDate, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.bankTransactionId, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.bankTransactionId, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.particulars, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.particulars, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.batchNo, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.batchNo, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+            </div>
+        </div>
+    </fieldset>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#invoiceAmount").change(function () {
+            debugger;
+            var surAmount = parseFloat($("#surchargeAmount").val());
+            var total = parseFloat($("#invoiceAmount").val()) + surAmount;
+            var total = total.toFixed(2);
+            $("#paidAmount").val(total);
+        });
+
+        $("#surchargeAmount").change(function () {
+            debugger;
+            var surAmount = parseFloat($("#surchargeAmount").val());
+            var total = parseFloat($("#invoiceAmount").val()) + surAmount;
+            var total = total.toFixed(2);
+            $("#paidAmount").val(total);
+        });
+
+        $("#totalAmount").change(function () {
+            debugger;
+            var paidAmount = parseFloat($("#paidAmount").val());
+            var totalAmount = parseFloat($("#totalAmount").val());
+            if (totalAmount != paidAmount) {
+                $("#totalAmount").val("");
+                alert("Confirm total and paid amount is not same. Please correct.");
+                return false;
+            }
+        });
+        $("#btnSubmit").click(function () {
+            debugger;
+            var message = validateInput();
+            if (message == "true") {
+                confirm("Do you want to continue?");
+                $("#divProcessing").show();
+            } else {
+                alert(message);
+                return false;
+            }
+        });
+    });
+    function validateInput() {
+        debugger;
+        var message = "";
+        var customerId = $("#customerId").val();
+        if (customerId.length == 0) {
+            message = message + "Please input customer code.*\n";
+        }
+
+        var customerCode = $("#customerCode").val();
+        if (customerCode.length != 13) {
+            message = message + "customer full code must be 13 digits. Please search again...*\n";
+        }
+        var receiverPhone = $("#mobile").val();
+        if (receiverPhone.length == 0) {
+            message = message + "Please input mobile no *\n";
+        }
+        if (receiverPhone.length > 14) {
+            message = message + "Mobile no Can not be greater than 14 digits.*\n";
+        }
+
+        if (receiverPhone.length > 0) {
+            var phonePat = /^(\d{10,13})$/;
+
+            var matchArray = receiverPhone.match(phonePat); // is the format ok?
+            if (matchArray == null) {
+                message = message + "Mobile no may contain 10 to 13 digits.\n";
+            }
+        }
+        if (receiverPhone.length > 0) {
+            if (/(.)\1{4,}/.test(receiverPhone)) {
+                message = message + "More than 4 repetitive characters is not allowed in Mobile no.\n";
+            }
+        }
+
+        var totalAmount = $("#totalAmount").val();
+        if (totalAmount.length == 0) {
+            message = message + "Please input confirm total.*\n";
+        }
+
+        var paidAmount = parseFloat($("#paidAmount").val());
+
+        if (totalAmount != paidAmount) {
+            message = message + "Total amount and confirm amount is not same.*\n";
+        }
+        
+        return message.length == 0 ? "true" : message;
+    }
+</script>

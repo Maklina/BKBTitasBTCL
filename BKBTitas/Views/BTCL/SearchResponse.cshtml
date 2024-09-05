@@ -1,0 +1,255 @@
+﻿@model BKBTitas.Models.ViewModel.BTCLBillRequestModel
+@{ ViewBag.Title = "Bill Search Response Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int h = 0;}
+ <br /><br /> <h4>Bill Details Of Customer <font color="Green">Mr. @Html.DisplayFor(model => model.Details[h].Name)  </font>  </h4>
+              <div id="divProcessing" class="modal">
+                  <img src="~/Images/ajax-loader.gif" />
+              </div>
+@using (Html.BeginForm("BTCLBillPaymentRequest", "BTCL", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.ExchangeCode, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.HiddenFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+    // @Html.DisplayFor(model => Model.Details.Name);
+    @Html.HiddenFor(model => model.TxnNumber, new { htmlAttributes = new { @class = "form-control" } })
+    <table class="table" style="font-size: 13px;">
+        @*<script>
+                $(document).ready(function () {
+                    $('.checkbox:button').toggle(function () {
+                        $('input:checkbox').attr('checked', 'checked');
+                        $(this).val('uncheck all')
+                    },
+                        function () {
+                        $('input:checkbox').removeAttr('checked');
+                        $(this).val('check all');
+                    })
+                })
+
+            </script>*@
+
+
+        <tr>
+            <th>Sl.No</th>
+            <th>
+
+                IsChecked
+                @*<input type="button" class="checkbox" value="check all" />*@
+            </th>
+
+
+            <th>
+                BillNo
+            </th>
+            <th>
+                BillMonth
+            </th>
+            <th>BillMonth</th>
+
+            <th>
+                BillMonthYear
+            </th>
+
+
+            <th>
+                BillPayStatus
+            </th>
+            <th>
+                BTCLAmount
+            </th>
+            <th>
+                VAT
+            </th>
+            <th>
+                Overdue Amount
+            </th>
+            <th>
+                TotalAmount
+            </th>
+
+
+
+        </tr>
+
+
+        @if (Model != null)
+        {
+            int i = 0;
+            int J = 1;
+            decimal total = 0;
+            decimal totalVAT = 0;
+
+            foreach (var item in Model.Details.ToList())
+            {
+
+                <tr>
+
+                    <td align="center">@(i+1)</td>
+                    @Html.HiddenFor(model => model.Details[i].Name, new { htmlAttributes = new { @class = "form-control" } })
+                    <td align="center">
+
+                        @Html.CheckBoxFor(model => model.Details[i].isChecked, new { @type = "checkbox", @id = "checkbox", @class = "checkbox" })
+
+                        @Html.HiddenFor(model => model.Details[i].BillNo, new { htmlAttributes = new { @id = "BillNo_" + i, @class = "form-control" } })
+                        <script type="text/javascript" language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+                        </script>
+                        <script>
+
+                            $('.checkbox').change(function () {
+                                //var total_BTCL_Amount = 0;
+                                //var total_VAT = 0;
+                                $('#totalAmount').text(getTotalAmount());
+
+                            });
+                            function getTotalAmount() {
+                                var totalAmount = 0;
+                                var selected = $('.checkbox:checked'); // get the selected checkboxes
+                                $.each(selected, function (index, isChecked) { // loop through the selected checkboxes
+                                    var row = $(this).closest('tr'); // get the containing tr element
+                                    //total_BTCL_Amount += Number(row.find('.BTCLAmount').text());
+                                    //total_VAT += Number(row.find('.VAT').text());
+                                    totalAmount += Number(row.find('.TotalAmount').text());
+                                })
+                                // display the totals
+                                //$('#total_BTCL_Amount').text(total_BTCL_Amount);
+                                //$('#total_VAT').text(total_VAT);
+                                return totalAmount;
+                            }
+                        </script>
+
+
+
+
+                    </td>
+
+
+                    <td align="center">
+                        @Html.DisplayFor(model => model.Details[i].BillNo)
+                        @Html.HiddenFor(model => model.Details[i].BillNo, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+
+
+                    <td align="center">
+                        @Html.DisplayFor(model => model.Details[i].BillMonth)
+                        @Html.HiddenFor(model => model.Details[i].BillMonth, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(model => model.Details[i].BillYear)
+                        @Html.HiddenFor(model => model.Details[i].BillYear, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+
+
+
+                    <td align="center">
+                        @Html.DisplayFor(model => model.Details[i].BillMonthYear)
+                        @Html.HiddenFor(model => model.Details[i].BillMonthYear, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+
+                    <td align="center">
+                        @Html.DisplayFor(model => model.Details[i].BillPayStatus)
+                        @Html.HiddenFor(model => model.Details[i].BillPayStatus, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+
+                    <td align="center">
+
+                        @*@{ total += Convert.ToInt32(model.Details[i].BTCL_Amount); }*@
+                        @Html.DisplayFor(model => model.Details[i].BTCLAmount)
+                        @Html.HiddenFor(model => model.Details[i].BTCLAmount, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(model => model.Details[i].OverdueAmount)
+                        @*@{ TotalOverdue += Convert.ToInt32(model.Details[i].OverdueAmount); }*@
+                        @Html.HiddenFor(model => model.Details[i].OverdueAmount, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+
+                    <td align="center">
+                        @Html.DisplayFor(model => model.Details[i].VAT)
+                        @*@{ totalVAT += Convert.ToInt32(model.Details[i].VAT); }*@
+                        @Html.HiddenFor(model => model.Details[i].VAT, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+                    <td align="center" class="TotalAmount">
+                        @Html.DisplayFor(model => model.Details[i].TotalAmount)
+                        @*@{ totalVAT += Convert.ToInt32(model.Details[i].VAT); }*@
+                        @Html.HiddenFor(model => model.Details[i].TotalAmount, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+
+
+
+
+
+
+                </tr>
+                i++;
+
+            }
+
+            @*<tr> <td colspan="6" align="center">Total BTCL Amount & VAT :</td>  <td id="total_BTCL_Amount" align="center"></td><td id="total_VAT" align="center"></td> </tr>*@
+            <tr><td colspan="10" align="right" style="color:Red">Total Paid Amount :</td>  <td id="totalAmount" align="center" style="color:Red"></td></tr>
+            <tr>
+                <td colspan="10" align="right" style="color:Red">@Html.Label("Confrim Total Bill Amount", htmlAttributes: new { @class = "control-label" }) </td>
+                <td>
+                    @Html.EditorFor(model => model.ConfirmAmount, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off" } })
+                    @Html.ValidationMessageFor(model => model.ConfirmAmount, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td colspan="11" align="center">
+                    <input type="submit" value="Confirm Transaction" id="btnSubmit" class="btn btn-default btn-primary" />
+                </td>
+            </tr>
+
+        }
+        else
+        {
+            <tr>
+                <td align="center" colspan="11"><h2 color="red">No Paid Bill data found!</h2></td>
+            </tr>
+        }
+
+    </table>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //$("#ConfirmAmount").change(function () {
+        //    debugger;
+        //    var totalAmount = getTotalAmount();
+        //    var ConfirmAmount = parseFloat($("#ConfirmAmount").val());
+        //    if (ConfirmAmount != totalAmount) {
+        //        alert("Confirm total and paid amount is not same. Please check");
+
+        //    }
+
+        //});
+        $("#btnSubmit").click(function () {
+            debugger;
+            var message = validateInput();
+            if (message == "") {
+                confirm("Do you want to continue?");
+                return true;
+                    //$("#divProcessing").show();
+            } else {
+                alert(message);
+                return false;
+            }
+        });
+    });
+    function validateInput() {
+        debugger;
+        var message = "";
+        var ConfirmAmount = $("#ConfirmAmount").val();
+        if (ConfirmAmount.length ==0) {
+            message = message + "Please input confirm total.*\n";
+        }
+
+        var totalAmount = getTotalAmount();
+        ConfirmAmount = parseFloat($("#ConfirmAmount").val());
+        if (ConfirmAmount != totalAmount) {
+            message = message + "Total amount and confirm amount must be same!\n";
+        }
+        return message;
+    }
+</script>

@@ -1,0 +1,93 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<BKBTitas.Models.ViewModel.UserSignUpModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<h4>@TempData["retMsg"]</h4>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        @Html.Label("Search by Name, User ID, or Mobile", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-2">
+            @Html.Editor("searchString", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+        </div>
+        <div class="form-group col-md-2">
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </div>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            User ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Role
+        </th>
+        <th>
+            Branch
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Mobile No
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userRole)--@Html.DisplayFor(modelItem => item.roleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.branch_code)--@Html.DisplayFor(modelItem => item.branchName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserMobile)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { userID = item.userID })
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td>No data found!</td>
+        </tr>
+    }
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page }))
+<script>
+    $(function () {
+        $('#tbldata').paging({ limit: 100 });
+    })
+</script>

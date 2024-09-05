@@ -1,0 +1,6 @@
+2022-02-13 16:10:09,792 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:::1
+2022-02-13 16:10:13,199 [5] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:::1
+2022-02-13 16:10:17,893 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:::1
+2022-02-13 16:10:17,903 [6] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:::1
+2022-02-13 16:10:23,277 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:::1
+2022-02-13 16:10:23,362 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:::1

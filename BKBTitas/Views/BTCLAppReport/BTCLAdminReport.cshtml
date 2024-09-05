@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h3 style="text-align:center">BTCL Online Bill Collection Report</h3>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        ///////////////BTCL///////////////
+        $("#btnBrBTCLDetail").click(function () {
+            debugger;
+            BrBTCLDetailReport();
+        });
+        $("#btnBrBTCLSummary").click(function () {
+            debugger;
+            BrBTCLSummaryReport();
+        });
+
+    });
+
+
+  //////////////////////////BTCL//////////////////////////
+
+    function BrBTCLDetailReport() {
+        debugger;
+        var popup;
+        var branchCode = '@Session["BranchCode"]';
+        var userRole = '@Session["userRole"]';
+        var dtFrom = $("#dateFrom").val() == null ? new Date() : $("#dateFrom").val();
+        var dtTo = $("#dateTo").val() == null ? new Date() : $("#dateTo").val();
+        var url = '@Url.Action("BranchWiseBTCLBillDetail.aspx", "ReportFile/ASPXFile")' + "?dtFrom=" + dtFrom + "&dtTo=" + dtTo + "&branchCode=" + branchCode + "&type=brWiseDetails" + "&userRole=" + userRole;
+        popup = window.open(url);
+        popup.focus();
+    }
+     function BrBTCLSummaryReport() {
+        debugger;
+        var popup;
+        var branchCode = '@Session["BranchCode"]';
+        var userRole = '@Session["userRole"]';
+         var dtFrom = $("#dateFrom").val() == null ? new Date() : $("#dateFrom").val();
+         var dtTo = $("#dateTo").val() == null ? new Date() : $("#dateTo").val();
+         var url = '@Url.Action("BranchWiseBTCLBillSummary.aspx", "ReportFile/ASPXFile")' + "?dtFrom=" + dtFrom + "&dtTo=" + dtTo + "&branchCode=" + branchCode + "&type=brWiseSummary" + "&userRole=" + userRole;
+        popup = window.open(url);
+        popup.focus();
+    }
+
+
+</script>
+
+<fieldset>
+    <legend>Search Parameter</legend>
+    <div class="row">
+        <div class="col-md-3">
+            @Html.Label("Date From", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.Editor("dateFrom", new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+        </div>
+        <div class="col-md-3">
+            @Html.Label("Date To", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.Editor("dateTo", new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+        </div>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>BTCL REPORT</legend>
+    <div class="row">
+        <div class="col-md-3">
+            <input type="submit" value="Branch Wise BTCL Details" id="btnBrBTCLDetail" class="btn btn-default btn-primary" />
+        </div>
+
+
+  
+        <div class="col-md-3">
+            <input type="submit" value="Branch Wise BTCL Summary" id="btnBrBTCLSummary" class="btn btn-default btn-primary" />
+        </div>
+
+
+    </div>
+</fieldset>

@@ -1,0 +1,2 @@
+2021-09-28 10:58:37,424 [14] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-09-28 10:58:39,313 [14] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1

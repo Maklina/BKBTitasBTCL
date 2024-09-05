@@ -1,0 +1,26 @@
+2021-11-29 11:26:39,417 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-11-29 11:26:41,884 [5] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:127.0.0.1
+2021-11-29 11:34:02,201 [17] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-11-29 11:34:02,243 [17] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:127.0.0.1
+2021-11-29 11:34:16,185 [17] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-11-29 11:34:16,312 [17] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-11-29 11:36:48,937 [17] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-11-29 11:36:49,159 [17] ERROR BKBTitas.Controllers.BTCLController - Error:System.ArgumentNullException: Value cannot be null.
+Parameter name: fileName
+   at System.Security.Cryptography.X509Certificates.X509Certificate.LoadCertificateFromFile(String fileName, Object password, X509KeyStorageFlags keyStorageFlags)
+   at System.Security.Cryptography.X509Certificates.X509Certificate2..ctor(String fileName, String password)
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 87
+2021-11-29 11:42:30,338 [20] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-11-29 11:42:30,357 [20] ERROR BKBTitas.Controllers.BTCLController - Error:System.ArgumentNullException: Value cannot be null.
+Parameter name: fileName
+   at System.Security.Cryptography.X509Certificates.X509Certificate.LoadCertificateFromFile(String fileName, Object password, X509KeyStorageFlags keyStorageFlags)
+   at System.Security.Cryptography.X509Certificates.X509Certificate2..ctor(String fileName, String password)
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 87
+2021-11-29 11:54:32,422 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-11-29 11:54:34,527 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-11-29 12:01:33,824 [7] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-11-29 12:02:01,412 [7] ERROR BKBTitas.Controllers.BTCLController - Error:System.ArgumentNullException: Value cannot be null.
+Parameter name: fileName
+   at System.Security.Cryptography.X509Certificates.X509Certificate.LoadCertificateFromFile(String fileName, Object password, X509KeyStorageFlags keyStorageFlags)
+   at System.Security.Cryptography.X509Certificates.X509Certificate2..ctor(String fileName, String password)
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 89

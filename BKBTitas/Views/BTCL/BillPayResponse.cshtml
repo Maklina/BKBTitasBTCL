@@ -1,0 +1,168 @@
+﻿
+@model BKBTitas.Models.ViewModel.BTCLBillRequestModel
+
+@{
+    ViewBag.Title = "BTCLBillPaymentRequest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+    function printContent(el) {
+        var restorepage = document.body.innerHTML;
+        var printcontent = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+    }
+</script>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    if (TempData["retMsg"] != null)
+    {
+        <h4 style="color:red"> @TempData["retMsg"] </h4>
+    }
+    else
+    {
+        <br />
+        <br />
+        <br />
+        <div id="content">
+            <table id="t01" class="center">
+                <tr>
+                    <th>Sl.No</th>
+
+
+                    <th>
+                        BillNo
+                    </th>
+                    <th>
+                        BillMonth-Year
+                    </th>
+                    <th>
+                        BTCL Amount
+                    </th>
+                    <th>
+                        VAT
+                    </th>
+                    <th>
+                        Overdue Amount
+                    </th>
+                    <th>
+                        Paid Amount
+                    </th>
+
+
+
+
+                </tr>
+
+                @if (Model != null)
+                {
+                    int i = 0;
+                    int J = 1;
+                    decimal total = 0;
+                    decimal totalVAT = 0;
+                    foreach (var item in Model.Details)
+                    {
+
+                        if (item.isChecked == true)
+                        {
+
+                            <tr>
+
+                                <td align="center">@(i+1)</td>
+
+                                <td>
+                                    @Html.DisplayFor(model => item.BillNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.BillMonthYear)
+
+                                </td>
+                               
+                                <td>
+                                    @Html.DisplayFor(model => item.BTCLAmount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.OverdueAmount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.VAT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.TotalAmount)
+                                </td>
+
+                            </tr>
+                            i++;
+                        }
+                    }
+                }
+            </table>
+
+
+            <style>
+                table#t01 {
+                    width: 70%;
+                    height: auto;
+                    background-color: #f1f1c1;
+                }
+
+                .center {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                table#t01 tr:nth-child(even) {
+                    background-color: #eee;
+                }
+
+                table#t01 tr:nth-child(otd) {
+                    background-color: #fff;
+                }
+
+                table#t01 th {
+                    color: Black;
+                    background-color: white;
+                }
+
+                table, th, td {
+                    border: 1px solid black;
+                }
+
+                table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
+
+                table, th, td {
+                    border: 1px dotted black;
+                    border-collapse: collapse;
+                }
+
+                th, td {
+                    padding: 2px;
+                    width: auto;
+                    height: 10px;
+                }
+            </style>
+        </div>
+
+
+
+        <p style="text-align:center;">
+            <input id="printdiv" type="submit" value="Print" onclick="printContent('content')" />
+
+        </p>
+
+    }
+}
+

@@ -1,0 +1,82 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<BKBTitas.Models.ViewModel.BranchViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<h4>@TempData["retMsg"]</h4>
+@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        @Html.Label("Search by Br Name,Br Code, Agent ID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-2">
+            @Html.Editor("searchString", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+        </div>
+        <div class="form-group col-md-2">
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </div>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Br. Code
+        </th>
+        <th>
+            Br. Name
+        </th>
+        <th>
+            Agent ID
+        </th>
+        <th>
+            Address 1
+        </th>
+        <th>
+            Status
+        </th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.branch_code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.branch_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.agentID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td>No data found!</td>
+        </tr>
+    }
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+
+@Html.PagedListPager(Model, page => Url.Action("BranchList",
+    new { page }))
+<script>
+    $(function () {
+        $('#tbldata').paging({ limit: 100 });
+    })
+</script>

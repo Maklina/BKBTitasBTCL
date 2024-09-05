@@ -1,0 +1,24 @@
+2021-12-06 11:08:18,187 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-12-06 11:08:19,639 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-12-06 11:08:42,706 [5] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-12-06 11:08:42,935 [5] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tBillDetailDto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><RowNumber>1</RowNumber><BillNo>R210702222202222</BillNo><BillMonth>7</BillMonth><BillYear>2021</BillYear><BTCLAmount>63966</BTCLAmount><OverdueAmount>0</OverdueAmount><VAT>4834</VAT><BillPayStatus>U</BillPayStatus><Name>MD. FAIM UDDIN</Name><ServiceNumber>02222202222</ServiceNumber></tBillDetailDto>
+2021-12-06 11:08:43,030 [5] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><BTCLBillDetailsModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><id>0</id><RowNumber>1</RowNumber><TxnNumber>BKB1206010540</TxnNumber><PhoneNumber>02222202222</PhoneNumber><AccountNumber /><BillNo>R210702222202222</BillNo><BillMonth>7</BillMonth><BillYear>2021</BillYear><BTCLAmount>63966</BTCLAmount><OverdueAmount>0</OverdueAmount><VAT>4834</VAT><Name>MD. FAIM UDDIN</Name><BillPayStatus>U</BillPayStatus><ServiceNumber>02222202222</ServiceNumber><CollectionDate xsi:nil="true" /><ConfirmAmount>0</ConfirmAmount></BTCLBillDetailsModel>
+2021-12-06 11:12:04,232 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-12-06 11:12:05,636 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-12-06 11:14:09,946 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-12-06 11:14:11,358 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-12-06 11:43:09,776 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-12-06 11:43:11,140 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-12-06 11:43:33,612 [5] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-12-06 11:44:57,717 [5] ERROR BKBTitas.Controllers.BTCLController - ErrorThe remote server returned an error: (500) Internal Server Error.
+2021-12-06 11:46:37,103 [6] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-12-06 11:53:54,905 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-12-06 11:53:56,260 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-12-06 11:55:58,426 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-12-06 11:55:59,771 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-12-06 11:57:29,019 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-12-06 11:57:30,370 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-12-06 12:58:54,913 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-12-06 12:58:57,771 [6] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-12-06 12:59:20,896 [5] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tTokenRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><UserID>BKBank01</UserID><Password>BKBank01</Password></tTokenRequest>
+2021-12-06 14:38:12,858 [5] ERROR BKBTitas.Controllers.BTCLController - ErrorThe remote server returned an error: (500) Internal Server Error.

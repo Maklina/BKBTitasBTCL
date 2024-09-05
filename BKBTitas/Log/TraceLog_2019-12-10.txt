@@ -1,0 +1,184 @@
+2019-12-10 12:48:25,710 [34] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-10 12:48:30,621 [34] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-10 12:49:10,156 [18] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Request: bank/api/v1/customers/0113200969217
+2019-12-10 12:49:12,391 [18] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Response:{"status":"success","message":"Success","data":{"id":1454629,"customerCode":"0113200969217","customerName":"MD. ABDUS SATTAR","applianceSummary":"D2","connectionAddress":"Chandura, Kunia Pachor, Board Bazar, Gazipur","mobile":"8801914063733"}}
+2019-12-10 12:49:44,144 [18] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Post Request:bank/api/v1/payments/?customer=1454629&amount=19500&surcharge=40&particulars=1018,0719&bankTransactionId=20191210000067&cellPhone=8801914063733
+2019-12-10 12:49:45,378 [18] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Post Response:{"status":"success","message":"Success","data":{"id":7476884,"bank":"BANGLADESH KRISHI BANK LTD.","batchNo":"2010122019001","amount":19500,"surcharge":40,"total":19540,"voucherDate":"10/12/2019","particulars":"1018,0719","bankTransactionId":"20191210000067"}}
+2019-12-10 12:59:23,182 [26] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:::1
+2019-12-10 12:59:24,966 [26] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:::1
+2019-12-10 12:59:36,442 [21] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-10 12:59:36,505 [21] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-10 13:02:54,417 [21] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-10 13:02:54,433 [21] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-10 13:03:08,214 [32] DEBUG BKBTitas.Controllers.AppReportController - Non-Metered Bill Payment History on :bank/api/v1/payments/?voucherDate=10/12/2019
+2019-12-10 13:03:10,073 [32] DEBUG BKBTitas.Controllers.AppReportController - Non-Metered Bill Response:{"status":"success","message":"Success","data":[{"id":7476884,"bank":"BANGLADESH KRISHI BANK LTD.","batchNo":"2010122019001","amount":19500,"surcharge":40,"total":19540,"voucherDate":"10/12/2019","particulars":"1018,0719","bankTransactionId":"20191210000067"}]}
+2019-12-10 13:03:54,544 [37] DEBUG BKBTitas.Controllers.AppReportController - Non-Metered Bill Payment History on :bank/api/v1/payments/?voucherDate=10/12/2019
+2019-12-10 13:03:56,247 [37] DEBUG BKBTitas.Controllers.AppReportController - Non-Metered Bill Response:{"status":"success","message":"Success","data":[{"id":7476884,"bank":"BANGLADESH KRISHI BANK LTD.","batchNo":"2010122019001","amount":19500,"surcharge":40,"total":19540,"voucherDate":"10/12/2019","particulars":"1018,0719","bankTransactionId":"20191210000067"}]}
+2019-12-10 13:04:23,438 [32] DEBUG BKBTitas.Controllers.AppReportController - Non-Metered Bill Payment History on :bank/api/v1/payments/?voucherDate=10/12/2019
+2019-12-10 13:04:25,156 [32] DEBUG BKBTitas.Controllers.AppReportController - Non-Metered Bill Response:{"status":"success","message":"Success","data":[{"id":7476884,"bank":"BANGLADESH KRISHI BANK LTD.","batchNo":"2010122019001","amount":19500,"surcharge":40,"total":19540,"voucherDate":"10/12/2019","particulars":"1018,0719","bankTransactionId":"20191210000067"}]}
+2019-12-10 13:09:55,663 [37] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-10 13:09:56,350 [37] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-10 13:11:17,433 [13] DEBUG BKBTitas.Controllers.MMBillnDDController - Metered Bill Request:metered/invoice/search?invoiceNo=90-3049710&customerCode=2-38-000292-00-37-7
+2019-12-10 13:11:18,199 [13] DEBUG BKBTitas.Controllers.MMBillnDDController - Metered Bill Response:{"status":200,"message":"Success","data":{"invoiceNo":"903049710","customerCode":"23800029200377","customerName":"RUCHI HOTEL","issueMonth":"201706","invoiceAmount":21185.0,"issueDate":"20170704","settleDate":"","zone":"ZMO-Savar"}}
+2019-12-10 13:11:42,643 [13] DEBUG BKBTitas.Controllers.MMBillnDDController - Metered Bill Post Request:metered/payment/add?invoiceNo=903049710&customerCode=23800029200377&paidAmount=21175&sourceTaxAmount=0&revenueStamp=10&transactionDate=20191210&branchRoutingNo=035262592&operator=bkbmg4102&refNo=20191210000068
+2019-12-10 13:11:44,315 [13] DEBUG BKBTitas.Controllers.MMBillnDDController - Metered Bill Post Response:{"status":200,"message":"Payment is added","data":{"paymentId":340494,"customerCode":"23800029200377","transactionDate":"20191210","transactionStatus":0,"invoiceNo":"903049710","invoiceAmount":21185.0,"paidAmount":21175.0,"sourceTaxAmount":0.0,"revenueStamp":10.0,"bankCode":"KR","branchCode":"","branchRoutingNo":"035262592","zone":"ZMO-Savar","operator":"bkbmg4102","refNo":"20191210000068","reason":"","cancelOperator":"","chalanDate":"","chalanBank":"","chalanBranch":"","chalanNo":"","creator":"Zlcjh6AKDburN5aO96QYDQwrT2MCk7bd","creationTime":1575960835789,"postingTime":null}}
+2019-12-10 14:44:25,089 [10] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-10 14:44:29,346 [10] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-10 14:50:04,940 [29] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-10 14:50:08,244 [29] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-10 14:52:30,769 [25] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Request: bank/api/v1/customers/0113200969217
+2019-12-10 14:52:33,063 [25] ERROR BKBTitas.Controllers.NMBillnDDController - <!DOCTYPE html>
+<html>
+<head>
+	<title>Error: 500</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="stylesheet" type="text/css" href="/bank_nonmetered/dist/css/min/error-e3f942437343c13e578277c9b2e44f57.css" />
+</head>
+
+<body class="page-404-full-page">
+<div class="row">
+    <div class="col-md-12 page-404">
+        <div class="number">500</div>
+        <div class="details">
+    <h3>Oops! Something went wrong.</h3>
+    <p>
+        We are fixing it!<br />
+        Please come back in a while.<br />
+    </p>
+</div>
+    </div>
+</div>
+<script type="text/javascript" src="/bank_nonmetered/dist/js/jquery-52336e4d7f195a72fc62f3bad5fc886a.js"></script>
+</body>
+</html>
+2019-12-10 14:52:33,218 [25] ERROR BKBTitas.Controllers.NMBillnDDController - Metered Bill Request:Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+2019-12-10 14:52:37,757 [34] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Request: bank/api/v1/customers/0113200969217
+2019-12-10 14:52:39,488 [34] ERROR BKBTitas.Controllers.NMBillnDDController - <!DOCTYPE html>
+<html>
+<head>
+	<title>Error: 500</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="stylesheet" type="text/css" href="/bank_nonmetered/dist/css/min/error-e3f942437343c13e578277c9b2e44f57.css" />
+</head>
+
+<body class="page-404-full-page">
+<div class="row">
+    <div class="col-md-12 page-404">
+        <div class="number">500</div>
+        <div class="details">
+    <h3>Oops! Something went wrong.</h3>
+    <p>
+        We are fixing it!<br />
+        Please come back in a while.<br />
+    </p>
+</div>
+    </div>
+</div>
+<script type="text/javascript" src="/bank_nonmetered/dist/js/jquery-52336e4d7f195a72fc62f3bad5fc886a.js"></script>
+</body>
+</html>
+2019-12-10 14:52:39,557 [34] ERROR BKBTitas.Controllers.NMBillnDDController - Metered Bill Request:Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+2019-12-10 14:52:50,856 [19] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Request: bank/api/v1/customers/0110102482912
+2019-12-10 14:52:52,636 [19] ERROR BKBTitas.Controllers.NMBillnDDController - <!DOCTYPE html>
+<html>
+<head>
+	<title>Error: 500</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="stylesheet" type="text/css" href="/bank_nonmetered/dist/css/min/error-e3f942437343c13e578277c9b2e44f57.css" />
+</head>
+
+<body class="page-404-full-page">
+<div class="row">
+    <div class="col-md-12 page-404">
+        <div class="number">500</div>
+        <div class="details">
+    <h3>Oops! Something went wrong.</h3>
+    <p>
+        We are fixing it!<br />
+        Please come back in a while.<br />
+    </p>
+</div>
+    </div>
+</div>
+<script type="text/javascript" src="/bank_nonmetered/dist/js/jquery-52336e4d7f195a72fc62f3bad5fc886a.js"></script>
+</body>
+</html>
+2019-12-10 14:52:52,724 [19] ERROR BKBTitas.Controllers.NMBillnDDController - Metered Bill Request:Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+2019-12-10 14:54:15,017 [40] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Request: bank/api/v1/customers/0113200475016
+2019-12-10 14:54:16,724 [40] ERROR BKBTitas.Controllers.NMBillnDDController - <!DOCTYPE html>
+<html>
+<head>
+	<title>Error: 500</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="stylesheet" type="text/css" href="/bank_nonmetered/dist/css/min/error-e3f942437343c13e578277c9b2e44f57.css" />
+</head>
+
+<body class="page-404-full-page">
+<div class="row">
+    <div class="col-md-12 page-404">
+        <div class="number">500</div>
+        <div class="details">
+    <h3>Oops! Something went wrong.</h3>
+    <p>
+        We are fixing it!<br />
+        Please come back in a while.<br />
+    </p>
+</div>
+    </div>
+</div>
+<script type="text/javascript" src="/bank_nonmetered/dist/js/jquery-52336e4d7f195a72fc62f3bad5fc886a.js"></script>
+</body>
+</html>
+2019-12-10 14:54:16,739 [40] ERROR BKBTitas.Controllers.NMBillnDDController - Metered Bill Request:Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+2019-12-10 14:55:27,807 [25] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Request: bank/api/v1/customers/0117600514312
+2019-12-10 14:55:29,494 [25] ERROR BKBTitas.Controllers.NMBillnDDController - <!DOCTYPE html>
+<html>
+<head>
+	<title>Error: 500</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="stylesheet" type="text/css" href="/bank_nonmetered/dist/css/min/error-e3f942437343c13e578277c9b2e44f57.css" />
+</head>
+
+<body class="page-404-full-page">
+<div class="row">
+    <div class="col-md-12 page-404">
+        <div class="number">500</div>
+        <div class="details">
+    <h3>Oops! Something went wrong.</h3>
+    <p>
+        We are fixing it!<br />
+        Please come back in a while.<br />
+    </p>
+</div>
+    </div>
+</div>
+<script type="text/javascript" src="/bank_nonmetered/dist/js/jquery-52336e4d7f195a72fc62f3bad5fc886a.js"></script>
+</body>
+</html>
+2019-12-10 14:55:29,510 [25] ERROR BKBTitas.Controllers.NMBillnDDController - Metered Bill Request:Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+2019-12-10 14:56:43,637 [24] DEBUG BKBTitas.Controllers.MMBillnDDController - Metered Bill Request:metered/invoice/search?invoiceNo=20191210&customerCode=23800029200377
+2019-12-10 14:56:45,949 [24] DEBUG BKBTitas.Controllers.MMBillnDDController - Metered Bill Response:{"status":461,"message":"Invoice not found","reason":null}
+2019-12-10 14:56:46,231 [24] DEBUG BKBTitas.Controllers.MMBillnDDController - Metered Bill Request:Object reference not set to an instance of an object.
+2019-12-10 14:57:35,772 [25] DEBUG BKBTitas.Controllers.AppReportController - Non-Metered Bill Payment History on :bank/api/v1/payments/?voucherDate=10/12/2019
+2019-12-10 14:57:37,615 [25] DEBUG BKBTitas.Controllers.AppReportController - Non-Metered Bill Response:{"status":"success","message":"Success","data":[{"id":7476884,"bank":"BANGLADESH KRISHI BANK LTD.","batchNo":"2010122019001","amount":19500,"surcharge":40,"total":19540,"voucherDate":"10/12/2019","particulars":"1018,0719","bankTransactionId":"20191210000067"}]}
+2019-12-10 14:57:44,960 [38] DEBUG BKBTitas.Controllers.AppReportController - Metered Bill Payment History on :20191210
+2019-12-10 14:57:45,742 [38] DEBUG BKBTitas.Controllers.AppReportController - Metered Bill Response:{"status":200,"message":"Success","data":{"transactions":[{"paymentId":340494,"customerCode":"23800029200377","transactionDate":"20191210","transactionStatus":0,"invoiceNo":"903049710","invoiceAmount":21185.0,"paidAmount":21175.0,"sourceTaxAmount":0.0,"revenueStamp":10.0,"bankCode":"KR","branchCode":"","branchRoutingNo":"035262592","zone":"ZMO-Savar","operator":"bkbmg4102","refNo":"20191210000068","reason":"","cancelOperator":"","chalanDate":"","chalanBank":"","chalanBranch":"","chalanNo":"","creator":"Zlcjh6AKDburN5aO96QYDQwrT2MCk7bd","creationTime":1575960835789,"postingTime":null}]}}
+2019-12-10 15:19:50,845 [13] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-10 15:19:52,142 [13] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-10 17:33:59,385 [82] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-10 17:34:01,563 [82] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-10 17:55:21,235 [57] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Request: bank/api/v1/customers/0117600781915
+2019-12-10 17:55:23,135 [57] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Bill Response:{"status":"success","message":"Success","data":{"id":1597903,"customerCode":"0117600781915","customerName":"Nirbahi Prokousholi - PDB","applianceSummary":"","connectionAddress":"Abashik Quarter, Polash Bhobon (Ground Floor, North ) -PDB ,Satpai, Netrakona","mobile":"8801755581375"}}
+2019-12-10 17:55:45,851 [61] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Cancel Request:bank/api/v1/payments/7476884
+2019-12-10 17:55:46,180 [61] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Cancel Response:{"status":"success","message":"payment deleted","data":{"id":7476884,"bank":"BANGLADESH KRISHI BANK LTD.","batchNo":"2010122019001","amount":19500,"surcharge":40,"total":19540,"voucherDate":"10/12/2019","particulars":"1018,0719","bankTransactionId":"20191210000067"}}
+2019-12-10 17:56:08,261 [43] DEBUG BKBTitas.Controllers.MMBillnDDController - Metered Cancel Request:metered/payment/cancel?invoiceNo=903049710&customerCode=23800029200377&operator=bkbmg4102&reason=Test Cancel
+2019-12-10 17:56:10,498 [43] DEBUG BKBTitas.Controllers.MMBillnDDController - Metered Cancel Response:{"status":200,"message":"Payment canceled successfully","data":null}
+2019-12-10 17:56:37,277 [43] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Demand Draft Request:bank/api/v1/demand-note/invoice/11370000012155
+2019-12-10 17:56:37,355 [43] ERROR BKBTitas.Controllers.NMBillnDDController - {"status":"error","message":"Not Found","data":null}
+2019-12-10 17:56:42,120 [58] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Demand Draft Request:bank/api/v1/demand-note/invoice/11370000012155
+2019-12-10 17:56:42,135 [58] ERROR BKBTitas.Controllers.NMBillnDDController - {"status":"error","message":"Not Found","data":null}

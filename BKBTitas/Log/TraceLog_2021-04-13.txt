@@ -1,0 +1,140 @@
+2021-04-13 10:24:35,529 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-13 10:24:35,784 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-13 11:19:28,894 [86] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-13 11:19:30,184 [86] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-13 11:21:33,684 [87] DEBUG BKBTitas.Controllers.AppReportController - Metered Bill Payment History on :20210413&transactionDateTo=20210413
+2021-04-13 11:21:34,136 [87] DEBUG BKBTitas.Controllers.AppReportController - <section style="margin-top:10%">
+
+    <style>
+        .text-center{
+            text-align: center;   
+        }  
+        .error-text-2 {
+            color: #333;
+            font-size: 500%;
+            font-weight: 100;
+            letter-spacing: -0.05em;
+            line-height: 1;
+            line-height: 1;    
+        }
+        .font-xl {
+            font-size: 120% !important;    
+        }
+        .lead {
+            font-size: 1.99rem;
+        }
+        h1.font-x2 {
+            font-size: 2em !important;   
+        }
+        .error-lead {
+            font-size: 1rem;
+
+            font-weight: 200;
+            line-height: 1;
+            margin-bottom: 18px;    
+        }
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .middle{
+            margin:1rem;
+        }
+
+        .animated.bounceInDown {
+            animation-name: bounceInDown;
+        }
+        @keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-2000px);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(30px);
+            }
+            80% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        @keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-2000px);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(30px);
+            }
+            80% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        @keyframes tada {
+            0% {
+                transform: scale(1);
+            }
+            10%, 20% {
+                transform: scale(0.9) rotate(-3deg);
+            }
+            30%, 50%, 70%, 90% {
+                transform: scale(1.1) rotate(3deg);
+            }
+            40%, 60%, 80% {
+                transform: scale(1.1) rotate(-3deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        @keyframes tada {
+            0% {
+                transform: scale(1);
+            }
+            10%, 20% {
+                transform: scale(0.9) rotate(-3deg);
+            }
+            30%, 50%, 70%, 90% {
+                transform: scale(1.1) rotate(3deg);
+            }
+            40%, 60%, 80% {
+                transform: scale(1.1) rotate(-3deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        .animated.tada {
+            animation-name: tada;
+        }
+    </style>
+    <div class="row" >
+        <div class="large-12 columns text-center">
+            <div class="large-2 columns"> &nbsp;</div>
+            <div class="large-8 columns">
+                <h1 class="error-text-2 bounceInDown animated">Error 500						</h1>
+                <h4 class="font-xl">
+                    <i class="fi-alert"></i>
+                    <strong>Oooops, Something went wrong!</strong>
+                </h4>
+                <h5 class="text-center"><strong>You have experienced a technical error. We apologize.</strong></h5>
+                <p class="error-lead">
+
+                    We are working hard to correct this issue.
+
+                </p>
+            </div>
+            <div class="large-2 columns"> &nbsp;</div>
+        </div>   
+    </div>
+
+</section>
+2021-04-13 11:21:34,203 [87] DEBUG BKBTitas.Controllers.AppReportController - Metered Bill Request:Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+2021-04-13 14:42:00,031 [19] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-13 14:42:00,420 [19] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1

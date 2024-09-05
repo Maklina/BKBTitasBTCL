@@ -1,0 +1,109 @@
+﻿@model BKBTitas.Models.ViewModel.BillViewModel
+@{
+    ViewBag.Title = "Delete Payment";
+}
+
+<h3 style="text-align:center">DELETE TITAS NON METERED GAS BILL</h3>
+<h4 style="color:green;font-weight:bold">@TempData["sucMsg"]</h4>
+<h4 style="color:red;font-weight:bold">@TempData["errMsg"]</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <fieldset class="scheduler-border" style="align-items:center">
+        <legend>Delete Non-Metered Successful Payment</legend>
+        <div class="row">
+            <div class="col-md-3" style="color:red;font-weight:bold">
+                @Html.LabelFor(model => model.paymentId, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.paymentId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.paymentId, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3" style="color:red;font-weight:bold">
+                @Html.LabelFor(model => model.reason, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.reason, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.reason, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </fieldset>
+    <br />
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            <input type="submit" id="btnSubmit" value="Delete" class="btn btn-default btn-primary" />
+            &nbsp;&nbsp;&nbsp;@Html.ActionLink("Clear", "CancelPayment", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+    <fieldset class="scheduler-border">
+        <legend>Delete Transaction Confirmation</legend>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.paymentId, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.payId, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.bank, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.bank, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Amount", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.surcharge, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.surcharge, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.total, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.total, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.voucherDate, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.voucherDate, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.bankTransactionId, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.bankTransactionId, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.particulars, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.particulars, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.batchNo, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.batchNo, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            </div>
+        </div>
+    </fieldset>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#btnSubmit").click(function () {
+            debugger;
+            var message = validateInput();
+            if (message == "true") {
+                confirm("Do you want to continue?");
+            } else {
+                alert(message);
+                return false;
+            }
+        });
+    });
+    function validateInput() {
+        debugger;
+        var message = "";
+
+        var paymentId = $("#paymentId").val();
+        if (paymentId.length == 0) {
+            message = message + "Please input payment ID.*\n";
+        }
+
+        return message.length == 0 ? "true" : message;
+    }
+</script>

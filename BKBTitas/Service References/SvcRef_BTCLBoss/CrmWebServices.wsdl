@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://com.ztesoft.zsmart/service" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://com.ztesoft.zsmart/xsd" targetNamespace="http://com.ztesoft.zsmart/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>CrmWebServices</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="http://com.ztesoft.zsmart/xsd">
+      <xs:complexType name="tAuthHeader">
+        <xs:sequence>
+          <xs:element name="Username" type="xs:string" />
+          <xs:element name="Password" type="xs:string" />
+          <xs:element name="ChannelCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AuthHeader" type="ns:tAuthHeader" />
+      <xs:complexType name="tBillDetailDto">
+        <xs:sequence>
+          <xs:element name="RowNumber" nillable="true" type="xs:string" />
+          <xs:element name="BillNo" nillable="true" type="xs:string" />
+          <xs:element name="BillMonth" nillable="true" type="xs:string" />
+          <xs:element name="BillYear" nillable="true" type="xs:string" />
+          <xs:element name="BTCLAmount" type="xs:long" />
+          <xs:element name="OverdueAmount" type="xs:long" />
+          <xs:element name="VAT" type="xs:long" />
+          <xs:element name="BillPayStatus" nillable="true" type="xs:string" />
+          <xs:element name="Name" nillable="true" type="xs:string" />
+          <xs:element name="ServiceNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BillDetailDto" type="ns:tBillDetailDto" />
+      <xs:complexType name="tBillDetailDtoList">
+        <xs:sequence>
+          <xs:element name="BillDetailDto" nillable="true" type="ns:tBillDetailDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BillDetailDtoList" type="ns:tBillDetailDtoList" />
+      <xs:complexType name="tServiceAttrDto">
+        <xs:sequence>
+          <xs:element name="AttrCode" type="xs:string" />
+          <xs:element name="AttrValue" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceAttrDto" type="ns:tServiceAttrDto" />
+      <xs:complexType name="tServiceAttrDtoList">
+        <xs:sequence>
+          <xs:element name="ServiceAttrDto" nillable="true" type="ns:tServiceAttrDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceAttrDtoList" type="ns:tServiceAttrDtoList" />
+      <xs:complexType name="tBillPaymentRequest">
+        <xs:sequence>
+          <xs:element name="TXNNumber" type="xs:string" />
+          <xs:element name="UserID" type="xs:string" />
+          <xs:element name="TokenNumber" type="xs:string" />
+          <xs:element name="BranchCode" type="xs:string" />
+          <xs:element name="BankCode" type="xs:string" />
+          <xs:element name="BillNo" type="xs:string" />
+          <xs:element name="PaidAmount" type="xs:long" />
+          <xs:element name="BillStatus" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BillPaymentRequest" type="ns:tBillPaymentRequest" />
+      <xs:complexType name="tBillPaymentResponse">
+        <xs:sequence>
+          <xs:element name="ResponseCode" nillable="true" type="xs:string" />
+          <xs:element name="TXNNumber" type="xs:string" />
+          <xs:element name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BillPaymentResponse" type="ns:tBillPaymentResponse" />
+      <xs:complexType name="tBillRequest">
+        <xs:sequence>
+          <xs:element name="TXNNumber" type="xs:string" />
+          <xs:element name="UserID" type="xs:string" />
+          <xs:element name="TokenNumber" type="xs:string" />
+          <xs:element name="PhoneNumber" nillable="true" type="xs:string" />
+          <xs:element name="ExchangeCode" nillable="true" type="xs:string" />
+          <xs:element name="AccountNo" nillable="true" type="xs:string" />
+          <xs:element name="BillNo" nillable="true" type="xs:string" />
+          <xs:element name="PayStatus" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BillRequest" type="ns:tBillRequest" />
+      <xs:complexType name="tBillResponse">
+        <xs:sequence>
+          <xs:element name="TXNNumber" type="xs:string" />
+          <xs:element name="PhoneNumber" nillable="true" type="xs:string" />
+          <xs:element name="BillNo" nillable="true" type="xs:string" />
+          <xs:element name="AccountNo" nillable="true" type="xs:string" />
+          <xs:element name="BillDetailDtoList" nillable="true" type="ns:tBillDetailDtoList" />
+          <xs:element name="ResponseCode" nillable="true" type="xs:string" />
+          <xs:element name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BillResponse" type="ns:tBillResponse" />
+      <xs:complexType name="tBillByCustRequest">
+        <xs:sequence>
+          <xs:element name="TXNNumber" type="xs:string" />
+          <xs:element name="UserID" type="xs:string" />
+          <xs:element name="TokenNumber" type="xs:string" />
+          <xs:element name="CustCode" type="xs:string" />
+          <xs:element name="BillYearMonth" type="xs:string" />
+          <xs:element name="PayStatus" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BillByCustRequest" type="ns:tBillByCustRequest" />
+      <xs:complexType name="tBillByCustResponse">
+        <xs:sequence>
+          <xs:element name="TXNNumber" type="xs:string" />
+          <xs:element name="CustCode" nillable="true" type="xs:string" />
+          <xs:element name="BillDetailDtoList" nillable="true" type="ns:tBillDetailDtoList" />
+          <xs:element name="ResponseCode" nillable="true" type="xs:string" />
+          <xs:element name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BillByCustResponse" type="ns:tBillByCustResponse" />
+      <xs:complexType name="tChangePasswordRequest">
+        <xs:sequence>
+          <xs:element name="UserID" type="xs:string" />
+          <xs:element name="TokenNumber" type="xs:string" />
+          <xs:element name="OldPassword" type="xs:string" />
+          <xs:element name="NewPassword" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ChangePasswordRequest" type="ns:tChangePasswordRequest" />
+      <xs:complexType name="tChangePasswordResponse">
+        <xs:sequence>
+          <xs:element name="ResponseCode" type="xs:long" />
+          <xs:element name="Message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ChangePasswordResponse" type="ns:tChangePasswordResponse" />
+      <xs:complexType name="tPaymentCancelRequest">
+        <xs:sequence>
+          <xs:element name="TXNNumber" type="xs:string" />
+          <xs:element name="UserID" type="xs:string" />
+          <xs:element name="TokenNumber" type="xs:string" />
+          <xs:element name="BranchCode" type="xs:string" />
+          <xs:element name="BankCode" type="xs:string" />
+          <xs:element name="BillNo" type="xs:string" />
+          <xs:element name="BillStatus" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PaymentCancelRequest" type="ns:tPaymentCancelRequest" />
+      <xs:complexType name="tPaymentCancelResponse">
+        <xs:sequence>
+          <xs:element name="ResponseCode" nillable="true" type="xs:string" />
+          <xs:element name="TXNNumber" type="xs:string" />
+          <xs:element name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PaymentCancelResponse" type="ns:tPaymentCancelResponse" />
+      <xs:complexType name="tPaymentHistoryRequest">
+        <xs:sequence>
+          <xs:element name="TXNNumber" type="xs:string" />
+          <xs:element name="UserID" type="xs:string" />
+          <xs:element name="TokenNumber" type="xs:string" />
+          <xs:element name="FromDate" type="xs:string" />
+          <xs:element name="ToDate" type="xs:string" />
+          <xs:element name="BranchCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PaymentHistoryRequest" type="ns:tPaymentHistoryRequest" />
+      <xs:complexType name="tPaymentHistoryResponse">
+        <xs:sequence>
+          <xs:element name="ResponseCode" nillable="true" type="xs:string" />
+          <xs:element name="Message" nillable="true" type="xs:string" />
+          <xs:element name="BillDetailDtoList" nillable="true" type="ns:tBillDetailDtoList" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PaymentHistoryResponse" type="ns:tPaymentHistoryResponse" />
+      <xs:complexType name="tTokenRequest">
+        <xs:sequence>
+          <xs:element name="UserID" type="xs:string" />
+          <xs:element name="Password" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TokenRequest" type="ns:tTokenRequest" />
+      <xs:complexType name="tTokenResponse">
+        <xs:sequence>
+          <xs:element name="TokenNumber" nillable="true" type="xs:string" />
+          <xs:element name="ResponseCode" type="xs:long" />
+          <xs:element name="Message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TokenResponse" type="ns:tTokenResponse" />
+      <xs:element name="QueryUserProfile4BasicResponse" type="ns:tQueryUserProfile4BasicResponse" />
+      <xs:complexType name="tQueryUserProfile4BasicRequest">
+        <xs:sequence>
+          <xs:element name="MSISDN" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="UserPwd" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="8" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="QueryUserProfile4BasicRequest" type="ns:tQueryUserProfile4BasicRequest" />
+      <xs:complexType name="tQueryUserProfile4BasicResponse">
+        <xs:sequence>
+          <xs:element name="MSISDN">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="CompletedDate">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="10" />
+                <xs:maxLength value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="CertType">
+            <xs:simpleType>
+              <xs:restriction base="xs:long">
+                <xs:minInclusive value="1" />
+                <xs:maxInclusive value="3" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="CertNbr" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="CustType" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="CustName" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="255" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Address" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="120" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="DefLang" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="SubsPlanCode">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="SubsPlanName">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="255" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="State">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="StateSet">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="12" />
+                <xs:maxLength value="12" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="CreditLimit" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="SubsID">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="9" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Bal">
+            <xs:simpleType>
+              <xs:restriction base="xs:long">
+                <xs:minInclusive value="1" />
+                <xs:maxInclusive value="12" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="BillingNumber" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tQueryServiceStatusRequest">
+        <xs:sequence>
+          <xs:element name="ServiceNumber" type="xs:string" />
+          <xs:element name="ServiceCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="QueryServiceStatusRequest" type="ns:tQueryServiceStatusRequest" />
+      <xs:complexType name="tQueryServiceStatusResponse">
+        <xs:sequence>
+          <xs:element name="ServiceStatus" nillable="true" type="xs:string" />
+          <xs:element name="ResponseCode" type="xs:long" />
+          <xs:element name="Message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="QueryServiceStatusResponse" type="ns:tQueryServiceStatusResponse" />
+      <xs:complexType name="tSetServiceRequest">
+        <xs:sequence>
+          <xs:element name="ServiceNumber" type="xs:string" />
+          <xs:element name="ServiceCode" type="xs:string" />
+          <xs:element name="ActionType" type="xs:string" />
+          <xs:element name="ServiceAttrDtoList" nillable="true" type="ns:tServiceAttrDtoList" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SetServiceRequest" type="ns:tSetServiceRequest" />
+      <xs:complexType name="tSetServiceResponse">
+        <xs:sequence>
+          <xs:element name="ResponseCode" type="xs:long" />
+          <xs:element name="Message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SetServiceResponse" type="ns:tSetServiceResponse" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="QueryServiceStatusRequest">
+    <wsdl:part name="parameters" element="ns:QueryServiceStatusRequest" />
+    <wsdl:part name="AuthHeader" element="ns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="QueryServiceStatusResponse">
+    <wsdl:part name="parameters" element="ns:QueryServiceStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="BillRequest">
+    <wsdl:part name="parameters" element="ns:BillRequest" />
+    <wsdl:part name="AuthHeader" element="ns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="BillResponse">
+    <wsdl:part name="parameters" element="ns:BillResponse" />
+  </wsdl:message>
+  <wsdl:message name="BillByCustRequest">
+    <wsdl:part name="parameters" element="ns:BillByCustRequest" />
+    <wsdl:part name="AuthHeader" element="ns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="BillByCustResponse">
+    <wsdl:part name="parameters" element="ns:BillByCustResponse" />
+  </wsdl:message>
+  <wsdl:message name="TokenRequest">
+    <wsdl:part name="parameters" element="ns:TokenRequest" />
+    <wsdl:part name="AuthHeader" element="ns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="TokenResponse">
+    <wsdl:part name="parameters" element="ns:TokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="BillPaymentRequest">
+    <wsdl:part name="parameters" element="ns:BillPaymentRequest" />
+    <wsdl:part name="AuthHeader" element="ns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="BillPaymentResponse">
+    <wsdl:part name="parameters" element="ns:BillPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetServiceRequest">
+    <wsdl:part name="parameters" element="ns:SetServiceRequest" />
+    <wsdl:part name="AuthHeader" element="ns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetServiceResponse">
+    <wsdl:part name="parameters" element="ns:SetServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordRequest">
+    <wsdl:part name="parameters" element="ns:ChangePasswordRequest" />
+    <wsdl:part name="AuthHeader" element="ns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordResponse">
+    <wsdl:part name="parameters" element="ns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaymentHistoryRequest">
+    <wsdl:part name="parameters" element="ns:PaymentHistoryRequest" />
+    <wsdl:part name="AuthHeader" element="ns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="PaymentHistoryResponse">
+    <wsdl:part name="parameters" element="ns:PaymentHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryUserProfile4BasicRequest">
+    <wsdl:part name="parameters" element="ns:QueryUserProfile4BasicRequest" />
+    <wsdl:part name="AuthHeader" element="ns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="QueryUserProfile4BasicResponse">
+    <wsdl:part name="parameters" element="ns:QueryUserProfile4BasicResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaymentCancelRequest">
+    <wsdl:part name="parameters" element="ns:PaymentCancelRequest" />
+    <wsdl:part name="AuthHeader" element="ns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="PaymentCancelResponse">
+    <wsdl:part name="parameters" element="ns:PaymentCancelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CrmWebServicesPortType">
+    <wsdl:operation name="QueryServiceStatus">
+      <wsdl:input wsaw:Action="urn:QueryServiceStatus" message="tns:QueryServiceStatusRequest" />
+      <wsdl:output wsaw:Action="urn:QueryServiceStatusResponse" message="tns:QueryServiceStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Bill">
+      <wsdl:input wsaw:Action="urn:Bill" message="tns:BillRequest" />
+      <wsdl:output wsaw:Action="urn:BillResponse" message="tns:BillResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="BillByCust">
+      <wsdl:input wsaw:Action="urn:BillByCust" message="tns:BillByCustRequest" />
+      <wsdl:output wsaw:Action="urn:BillByCustResponse" message="tns:BillByCustResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Token">
+      <wsdl:input wsaw:Action="urn:Token" message="tns:TokenRequest" />
+      <wsdl:output wsaw:Action="urn:TokenResponse" message="tns:TokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="BillPayment">
+      <wsdl:input wsaw:Action="urn:BillPayment" message="tns:BillPaymentRequest" />
+      <wsdl:output wsaw:Action="urn:BillPaymentResponse" message="tns:BillPaymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SetService">
+      <wsdl:input wsaw:Action="urn:SetService" message="tns:SetServiceRequest" />
+      <wsdl:output wsaw:Action="urn:SetServiceResponse" message="tns:SetServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="urn:ChangePassword" message="tns:ChangePasswordRequest" />
+      <wsdl:output wsaw:Action="urn:ChangePasswordResponse" message="tns:ChangePasswordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentHistory">
+      <wsdl:input wsaw:Action="urn:PaymentHistory" message="tns:PaymentHistoryRequest" />
+      <wsdl:output wsaw:Action="urn:PaymentHistoryResponse" message="tns:PaymentHistoryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserProfile4Basic">
+      <wsdl:input wsaw:Action="urn:QueryUserProfile4Basic" message="tns:QueryUserProfile4BasicRequest" />
+      <wsdl:output wsaw:Action="urn:QueryUserProfile4BasicResponse" message="tns:QueryUserProfile4BasicResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentCancel">
+      <wsdl:input wsaw:Action="urn:PaymentCancel" message="tns:PaymentCancelRequest" />
+      <wsdl:output wsaw:Action="urn:PaymentCancelResponse" message="tns:PaymentCancelResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CrmWebServicesSoap11Binding" type="tns:CrmWebServicesPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryServiceStatus">
+      <soap:operation soapAction="urn:QueryServiceStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap12:header message="tns:QueryServiceStatusRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bill">
+      <soap:operation soapAction="urn:Bill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap12:header message="tns:BillRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BillByCust">
+      <soap:operation soapAction="urn:BillByCust" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap12:header message="tns:BillByCustRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Token">
+      <soap:operation soapAction="urn:Token" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap12:header message="tns:TokenRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetService">
+      <soap:operation soapAction="urn:SetService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap12:header message="tns:SetServiceRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BillPayment">
+      <soap:operation soapAction="urn:BillPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap12:header message="tns:BillPaymentRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="urn:ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap12:header message="tns:ChangePasswordRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentHistory">
+      <soap:operation soapAction="urn:PaymentHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap12:header message="tns:PaymentHistoryRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserProfile4Basic">
+      <soap:operation soapAction="urn:QueryUserProfile4Basic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap12:header message="tns:QueryUserProfile4BasicRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentCancel">
+      <soap:operation soapAction="urn:PaymentCancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap12:header message="tns:PaymentCancelRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CrmWebServicesSoap12Binding" type="tns:CrmWebServicesPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryServiceStatus">
+      <soap12:operation soapAction="urn:QueryServiceStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:QueryServiceStatusRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bill">
+      <soap12:operation soapAction="urn:Bill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:BillRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BillByCust">
+      <soap12:operation soapAction="urn:BillByCust" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:BillByCustRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Token">
+      <soap12:operation soapAction="urn:Token" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:TokenRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetService">
+      <soap12:operation soapAction="urn:SetService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:SetServiceRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BillPayment">
+      <soap12:operation soapAction="urn:BillPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:BillPaymentRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="urn:ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:ChangePasswordRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentHistory">
+      <soap12:operation soapAction="urn:PaymentHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:PaymentHistoryRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserProfile4Basic">
+      <soap12:operation soapAction="urn:QueryUserProfile4Basic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:QueryUserProfile4BasicRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentCancel">
+      <soap12:operation soapAction="urn:PaymentCancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:PaymentCancelRequest" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CrmWebServicesHttpBinding" type="tns:CrmWebServicesPortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="QueryServiceStatus">
+      <http:operation location="QueryServiceStatus" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bill">
+      <http:operation location="Bill" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BillByCust">
+      <http:operation location="BillByCust" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Token">
+      <http:operation location="Token" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetService">
+      <http:operation location="SetService" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BillPayment">
+      <http:operation location="BillPayment" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <http:operation location="ChangePassword" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentHistory">
+      <http:operation location="PaymentHistory" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserProfile4Basic">
+      <http:operation location="QueryUserProfile4Basic" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentCancel">
+      <http:operation location="PaymentCancel" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CrmWebServices">
+    <wsdl:port name="CrmWebServicesHttpSoap11Endpoint" binding="tns:CrmWebServicesSoap11Binding">
+      <soap:address location="http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="CrmWebServicesHttpSoap12Endpoint" binding="tns:CrmWebServicesSoap12Binding">
+      <soap12:address location="http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="CrmWebServicesHttpEndpoint" binding="tns:CrmWebServicesHttpBinding">
+      <http:address location="http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,168 @@
+﻿@model BKBTitas.Models.ViewModel.BillViewModel
+
+@{
+    ViewBag.Title = "Metered Bill";
+}
+
+<h4>Metered Demand Draft</h4>
+<h4 style="color:red">@TempData["retMsg"]</h4>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.invoiceNo, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.invoiceNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.invoiceNo, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.customerCode, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.customerCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.customerCode, "", new { @class = "text-danger" })
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#invoiceNo").focus();
+                $("#invoiceNo").on("change", function () {
+                    $("#customerCode").on("change", function () {
+                        debugger;
+                        //alert("Calling method");
+                        $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("getCustomerData")',
+                            dataType: 'json',
+                            data: { customerCode: $("#customerCode").val(), invoiceNo: $("#invoiceNo").val() },
+                            success: function (data) {
+                                $("#customerMobile").val(data.customerMobile);
+                                $("#customerName").val(data.customerName);
+                                $("#customerAddress").val(data.customerAddress);
+                                console.log(data)
+                            },
+                            error: function (ex) {
+                                $("#customerMobile").val('');
+                                alert('No Data Found');
+                            }
+                        });
+                        return false;
+                    });
+                });
+
+                function updatePrice() {
+                    var aitAmount = parseFloat($("#sourceTaxAmount").val());
+                    var total = parseFloat($("#invoiceAmount").val()) - aitAmount;
+                    var total = total.toFixed(2);
+                    $("#paidAmount").val(total);
+                }
+                $(document).on("change, keyup", "#sourceTaxAmount", updatePrice);
+
+                function validateAmount() {
+                    debugger;
+                    var paidAmount = parseFloat($("#paidAmount").val());
+                    var totalAmount = parseFloat($("#totalAmount").val());
+                    if (totalAmount != paidAmount) {
+                        alert("Confirm total and paid amount is not same. Please check");
+                        return false;
+                    }
+                }
+                $(document).on("keydown, mouseout", "#totalAmount", validateAmount);
+            });
+        </script>
+
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.paymentId, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.paymentId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.paymentId, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.invoiceDate, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.invoiceDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.invoiceDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.invoiceAmount, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.invoiceAmount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.invoiceAmount, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.sourceTaxAmount, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.sourceTaxAmount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.sourceTaxAmount, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.paidAmount, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.paidAmount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.paidAmount, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.totalAmount, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.totalAmount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.totalAmount, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.transactionStatus, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.transactionStatus, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.transactionStatus, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.zone, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.zone, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.zone, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.refNo, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.refNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.refNo, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.reason, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.reason, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.reason, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.chalanNo, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.chalanNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.chalanNo, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.chalanDate, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.chalanDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.chalanDate, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.chalanBank, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.chalanBank, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.chalanBank, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.chalanBranch, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.chalanBranch, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.chalanBranch, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-3">
+            <input type="submit" value="Submit" class="btn btn-default btn-primary" />
+        </div>
+    </div>
+}
+

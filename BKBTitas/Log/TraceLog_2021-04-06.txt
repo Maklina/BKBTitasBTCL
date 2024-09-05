@@ -1,0 +1,73 @@
+2021-04-06 11:46:46,174 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:46:46,579 [6] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:46:46,625 [6] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:46:51,066 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:46:51,082 [6] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:46:51,082 [6] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:46:54,901 [11] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:46:54,916 [11] DEBUG BKBTitas.Controllers.LoginController - Login failed! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:47:04,359 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:47:04,374 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:47:04,374 [7] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:48:21,056 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:48:21,056 [6] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:48:21,071 [6] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:48:23,798 [11] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:48:23,814 [11] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:48:23,814 [11] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:48:33,373 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:48:33,389 [8] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:48:33,395 [8] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:50:08,616 [11] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:50:09,869 [11] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:50:10,032 [11] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:52:02,289 [14] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:52:02,289 [14] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:52:02,311 [14] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:52:05,264 [15] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:52:05,264 [15] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:52:05,280 [15] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:52:33,367 [13] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:52:34,617 [13] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:52:34,770 [13] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:53:07,650 [15] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:53:07,665 [15] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:53:07,681 [15] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:53:40,303 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 11:53:50,941 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-04-06 11:58:21,834 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:::1
+2021-04-06 11:58:22,536 [8] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:::1
+2021-04-06 11:58:22,583 [8] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:58:27,533 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:::1
+2021-04-06 11:58:27,549 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:::1
+2021-04-06 11:58:27,564 [7] ERROR BKBTitas.Controllers.LoginController - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BKBTitas.Models.AppManager.ApplicationManager.getRoutingNo(String branchCode) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Models\AppManager\ApplicationManager.cs:line 25
+   at BKBTitas.Controllers.LoginController.Index(LoginModels _login) in G:\Ahsan\ASPAPP\BKBTitas\BKBTitas\Controllers\LoginController.cs:line 87
+2021-04-06 11:58:49,399 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:::1
+2021-04-06 11:58:52,870 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:::1
+2021-04-06 12:00:53,343 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-04-06 12:00:53,982 [8] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1

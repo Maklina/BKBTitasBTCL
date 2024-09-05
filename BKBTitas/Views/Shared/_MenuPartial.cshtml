@@ -1,0 +1,29 @@
+﻿@if (Session["MenuMaster"] != null)
+{
+
+    var MenuMaster = (List<BKBTitas.Models.ViewModel.MenuModels>)Session["MenuMaster"];
+    var groupByMenu = MenuMaster.Where(x=> x.MenuStatus.Equals("Y")).GroupBy(x => x.MainMenuName).ToList();
+
+    foreach (var MenuList in groupByMenu)
+    {
+
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="font-weight:bold" href="#">@MenuList.Key<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                @foreach (var SubMenuList in MenuList)
+                {
+                    <li style="font-weight:bold">@Html.ActionLink(SubMenuList.SubMenuName, SubMenuList.ActionName, SubMenuList.ControllerName)</li>
+                }
+            </ul>
+        </li>
+
+    }
+}
+
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" style="font-weight:bold" href="#">Download Manual<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li style="font-weight:bold"><a target="_blank" href="@Url.Content("~/LETTER ABOUT BTCL BILL COLLECTION (1056) 16 02 2022.pdf")">Download Circulars</a></li>
+        <li style="font-weight:bold"><a target="_blank" href="@Url.Content("~/BTCLManual.pptx")">Download Manual</a></li>
+    </ul>
+</li>

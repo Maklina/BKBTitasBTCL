@@ -1,0 +1,839 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E990C56-C9C5-48F5-B0C4-4A821D5A4AE4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BKBTitas</RootNamespace>
+    <AssemblyName>BKBTitas</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net40\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="EntityModel\BKBTitas.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BKBTitas.edmx</DependentUpon>
+      <LastGenOutput>BKBTitas.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModel\BKBTitas.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BKBTitas.edmx</DependentUpon>
+      <LastGenOutput>BKBTitas.cs</LastGenOutput>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\btcl.jpg" />
+    <Content Include="Images\titaslogo.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="ReportFile\ASPXFile\BranchWiseBTCLBillSummary.aspx" />
+    <Content Include="ReportFile\ASPXFile\BranchWiseBTCLBillDetail.aspx" />
+    <Content Include="ReportFile\ASPXFile\BranchZoneSummaryNM.aspx" />
+    <Content Include="ReportFile\ASPXFile\CancelnDDReport.aspx" />
+    <Content Include="ReportFile\ASPXFile\NonMeterBillDetails.aspx" />
+    <Content Include="ReportFile\ASPXFile\TodayReport.aspx" />
+    <Content Include="ReportFile\ASPXFile\SummaryReportNonMetered.aspx" />
+    <Content Include="ReportFile\ASPXFile\TodaySummaryReport.aspx" />
+    <Content Include="ReportFile\ASPXFile\ZoneWiseSummaryNonMetered.aspx" />
+    <Content Include="ReportFile\ASPXFile\ZoneWiseSummary.aspx" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="ReportDataset\BKBTitas.xsc">
+      <DependentUpon>BKBTitas.xsd</DependentUpon>
+    </Content>
+    <Content Include="BKBTitasDataSet.xsc">
+      <DependentUpon>BKBTitasDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="BKBTitasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BKBTitasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="BKBTitasDataSet.xss">
+      <DependentUpon>BKBTitasDataSet.xsd</DependentUpon>
+    </Content>
+    <EntityDeploy Include="EntityModel\BKBTitas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BKBTitas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EntityModel\BKBTitas.edmx.diagram">
+      <DependentUpon>BKBTitas.edmx</DependentUpon>
+    </Content>
+    <None Include="ReportDataset\BKBTitas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BKBTitas.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="ReportDataset\BKBTitas.xss">
+      <DependentUpon>BKBTitas.xsd</DependentUpon>
+    </Content>
+    <None Include="scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="scripts\i18n\af.js" />
+    <Content Include="scripts\i18n\ar.js" />
+    <Content Include="scripts\i18n\az.js" />
+    <Content Include="scripts\i18n\bg.js" />
+    <Content Include="scripts\i18n\bs.js" />
+    <Content Include="scripts\i18n\ca.js" />
+    <Content Include="scripts\i18n\cs.js" />
+    <Content Include="scripts\i18n\da.js" />
+    <Content Include="scripts\i18n\de.js" />
+    <Content Include="scripts\i18n\dsb.js" />
+    <Content Include="scripts\i18n\el.js" />
+    <Content Include="scripts\i18n\en.js" />
+    <Content Include="scripts\i18n\es.js" />
+    <Content Include="scripts\i18n\et.js" />
+    <Content Include="scripts\i18n\eu.js" />
+    <Content Include="scripts\i18n\fa.js" />
+    <Content Include="scripts\i18n\fi.js" />
+    <Content Include="scripts\i18n\fr.js" />
+    <Content Include="scripts\i18n\gl.js" />
+    <Content Include="scripts\i18n\he.js" />
+    <Content Include="scripts\i18n\hi.js" />
+    <Content Include="scripts\i18n\hr.js" />
+    <Content Include="scripts\i18n\hsb.js" />
+    <Content Include="scripts\i18n\hu.js" />
+    <Content Include="scripts\i18n\hy.js" />
+    <Content Include="scripts\i18n\id.js" />
+    <Content Include="scripts\i18n\is.js" />
+    <Content Include="scripts\i18n\it.js" />
+    <Content Include="scripts\i18n\ja.js" />
+    <Content Include="scripts\i18n\km.js" />
+    <Content Include="scripts\i18n\ko.js" />
+    <Content Include="scripts\i18n\lt.js" />
+    <Content Include="scripts\i18n\lv.js" />
+    <Content Include="scripts\i18n\mk.js" />
+    <Content Include="scripts\i18n\ms.js" />
+    <Content Include="scripts\i18n\nb.js" />
+    <Content Include="scripts\i18n\nl.js" />
+    <Content Include="scripts\i18n\pl.js" />
+    <Content Include="scripts\i18n\ps.js" />
+    <Content Include="scripts\i18n\pt-BR.js" />
+    <Content Include="scripts\i18n\pt.js" />
+    <Content Include="scripts\i18n\ro.js" />
+    <Content Include="scripts\i18n\ru.js" />
+    <Content Include="scripts\i18n\sk.js" />
+    <Content Include="scripts\i18n\sl.js" />
+    <Content Include="scripts\i18n\sr-Cyrl.js" />
+    <Content Include="scripts\i18n\sr.js" />
+    <Content Include="scripts\i18n\sv.js" />
+    <Content Include="scripts\i18n\th.js" />
+    <Content Include="scripts\i18n\tr.js" />
+    <Content Include="scripts\i18n\uk.js" />
+    <Content Include="scripts\i18n\vi.js" />
+    <Content Include="scripts\i18n\zh-CN.js" />
+    <Content Include="scripts\i18n\zh-TW.js" />
+    <Content Include="scripts\jquery-1.12.4.js" />
+    <Content Include="scripts\jquery-1.12.4.min.js" />
+    <Content Include="scripts\jquery-1.12.4.min.map" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery-ui-1.12.1.js" />
+    <Content Include="scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="scripts\jquery.table2excel.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\select2.js" />
+    <Content Include="scripts\select2.min.js" />
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.BillByCustResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.BillPaymentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.BillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.ChangePasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.PaymentCancelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.PaymentHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.QueryServiceStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.QueryUserProfile4BasicResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.SetServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.tBillDetailDtoList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCLBoss\BKBTitas.SvcRef_BTCLBoss.TokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SvcRef_BTCLBoss\configuration91.svcinfo" />
+    <None Include="Service References\SvcRef_BTCLBoss\configuration.svcinfo" />
+    <None Include="Service References\SvcRef_BTCLBoss\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\SvcRef_BTCL\BKBTitas.SvcRef_BTCL.BillPaidHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCL\BKBTitas.SvcRef_BTCL.BillPaymentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCL\BKBTitas.SvcRef_BTCL.BillRequest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCL\BKBTitas.SvcRef_BTCL.ChangePasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCL\BKBTitas.SvcRef_BTCL.PaymentCancelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SvcRef_BTCL\BKBTitas.SvcRef_BTCL.TokenRequest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SvcRef_BTCLBoss\CrmWebServices.wsdl" />
+    <None Include="Service References\SvcRef_BTCL\configuration91.svcinfo" />
+    <None Include="Service References\SvcRef_BTCL\configuration.svcinfo" />
+    <None Include="Service References\SvcRef_BTCL\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Welcome.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BKBTitasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BKBTitasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppReportController.cs" />
+    <Compile Include="Controllers\BTCLAppReportController.cs" />
+    <Compile Include="Controllers\BTCLController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MMBillnDDController.cs" />
+    <Compile Include="Controllers\NMBillnDDController.cs" />
+    <Compile Include="EntityModel\BankTxnIDSequence.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BKBTitas.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BKBTitas.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BKBTitas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BKBTitas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BKBTitas.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\Branch.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseBTCLBillDetails_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseMeterCancelDetails_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseMeterCustDetails_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseMeterDetails_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseMeterSummary_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseNMDNoteCancelDetails_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseNMDNoteDetails_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseNonMeterCancelDetails_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseNonMeterCustDetails_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseNonMeterDetails_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseNonMeterDNoteSummary_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseNonMeterDNSummary_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchWiseNonMeterSummary_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BranchZoneNonMeterSummary_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BtclBillDetail.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BtclBillDetailLog.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BTCLDailyReport.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BTCLMonthlyReport.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\BTCLTxnID.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\LoginUser.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MainMenu.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MeteredBillDetail.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MeteredReport.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\NonMeterBillDetail.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\Non_MeteredReport.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\Role.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\RoleMenuMapping.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\SubMenu.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\TitasZone.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\ZoneWiseSummaryDNNon_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\ZoneWiseSummaryNon_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\ZoneWiseSummary_Result.cs">
+      <DependentUpon>BKBTitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppManager\ApplicationManager.cs" />
+    <Compile Include="Models\AppManager\BTCLAppManager.cs" />
+    <Compile Include="Models\AppManager\BTCLTokenManager.cs" />
+    <Compile Include="Models\AppManager\LogWritter.cs" />
+    <Compile Include="Models\AppManager\PasswordManager.cs" />
+    <Compile Include="Models\AppManager\Serializer.cs" />
+    <Compile Include="Models\ViewModel\AccountModel.cs" />
+    <Compile Include="Models\ViewModel\BillnDDModel.cs" />
+    <Compile Include="Models\ViewModel\BTCLBillViewModel.cs" />
+    <Compile Include="Models\ViewModel\LoginModels.cs" />
+    <Compile Include="Models\ViewModel\MenuModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportDataset\BKBTitas.cs">
+      <DependentUpon>BKBTitas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataset\BKBTitas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BKBTitas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\BranchWiseBTCLBillSummary.aspx.cs">
+      <DependentUpon>BranchWiseBTCLBillSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\BranchWiseBTCLBillSummary.aspx.designer.cs">
+      <DependentUpon>BranchWiseBTCLBillSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\BranchWiseBTCLBillDetail.aspx.cs">
+      <DependentUpon>BranchWiseBTCLBillDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\BranchWiseBTCLBillDetail.aspx.designer.cs">
+      <DependentUpon>BranchWiseBTCLBillDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\BranchZoneSummaryNM.aspx.cs">
+      <DependentUpon>BranchZoneSummaryNM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\BranchZoneSummaryNM.aspx.designer.cs">
+      <DependentUpon>BranchZoneSummaryNM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\CancelnDDReport.aspx.cs">
+      <DependentUpon>CancelnDDReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\CancelnDDReport.aspx.designer.cs">
+      <DependentUpon>CancelnDDReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\NonMeterBillDetails.aspx.cs">
+      <DependentUpon>NonMeterBillDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\NonMeterBillDetails.aspx.designer.cs">
+      <DependentUpon>NonMeterBillDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\TodayReport.aspx.cs">
+      <DependentUpon>TodayReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\TodayReport.aspx.designer.cs">
+      <DependentUpon>TodayReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\SummaryReportNonMetered.aspx.cs">
+      <DependentUpon>SummaryReportNonMetered.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\SummaryReportNonMetered.aspx.designer.cs">
+      <DependentUpon>SummaryReportNonMetered.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\TodaySummaryReport.aspx.cs">
+      <DependentUpon>TodaySummaryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\TodaySummaryReport.aspx.designer.cs">
+      <DependentUpon>TodaySummaryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\ZoneWiseSummaryNonMetered.aspx.cs">
+      <DependentUpon>ZoneWiseSummaryNonMetered.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\ZoneWiseSummaryNonMetered.aspx.designer.cs">
+      <DependentUpon>ZoneWiseSummaryNonMetered.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\ZoneWiseSummary.aspx.cs">
+      <DependentUpon>ZoneWiseSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFile\ASPXFile\ZoneWiseSummary.aspx.designer.cs">
+      <DependentUpon>ZoneWiseSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFile\Crystal\NonMeterBillDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NonMeterBillDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service References\SvcRef_BTCLBoss\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SvcRef_BTCL\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\MMBillnDD\MBill.cshtml" />
+    <Content Include="Views\NMBillnDD\NMBill.cshtml" />
+    <Content Include="Views\AppReport\UserReport.cshtml" />
+    <Content Include="Views\NMBillnDD\NMDemandD.cshtml" />
+    <Content Include="Views\MMBillnDD\MDemandD.cshtml" />
+    <Content Include="Views\MMBillnDD\CancelPayment.cshtml" />
+    <Content Include="Views\NMBillnDD\CancelPayment.cshtml" />
+    <Content Include="Views\Account\BranchList.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\FirstLogin.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\AppReport\MeteredPaymentHistory.cshtml" />
+    <Content Include="Views\AppReport\AdminReport.cshtml" />
+    <Content Include="Views\NMBillnDD\Index.cshtml" />
+    <Content Include="Views\MMBillnDD\Index.cshtml" />
+    <Content Include="Views\AppReport\NonMeteredPaymentHis.cshtml" />
+    <Content Include="Views\NMBillnDD\NonMtDNoteList.cshtml" />
+    <Content Include="Views\NMBillnDD\CancelNonDNote.cshtml" />
+    <Content Include="Views\AppReport\SendReport.cshtml" />
+    <None Include="Service References\SvcRef_BTCL\SLMSService.wsdl" />
+    <Content Include="Views\BTCL\Index.cshtml" />
+    <Content Include="Views\BTCL\SearchResponse.cshtml" />
+    <Content Include="Views\BTCL\SuccessDetails.cshtml" />
+    <Content Include="Views\BTCL\BillCollection.cshtml" />
+    <Content Include="Views\BTCL\BillCancel.cshtml" />
+    <Content Include="Views\BTCL\CollectionHistory.cshtml" />
+    <Content Include="Views\BTCLAppReport\BTCLAdminReport.cshtml" />
+    <Content Include="Views\BTCLAppReport\BTCLUserReport.cshtml" />
+    <Content Include="Views\BTCL\BillPayResponse.cshtml" />
+    <Content Include="Views\BTCL\CollectionHistoryRes.cshtml" />
+    <Content Include="Views\BTCLAppReport\SendBTCLReport.cshtml" />
+    <Content Include="Views\BTCLAppReport\SendBTCLMonthlyReport.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ExcelFiles\" />
+    <Folder Include="Log\" />
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BranchWiseBTCLBillSummary.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BranchWiseBTCLBillDetail.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrWiseBillCancelMet.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrWiseBillCancelNon.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrWiseDNCancelNon.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrWiseDNDetailNon.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrWiseMDetail.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrWiseDNSumNon.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrWiseNonMCustomerDetail.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrWiseSummaryNon.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrWiseNonMDetail.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\ZoneWiseNonDNoteDetail.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\ZoneWiseNonMDetail.rdlc" />
+    <EmbeddedResource Include="ReportFile\Crystal\NonMeterBillDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NonMeterBillDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrZoneWiseSummaryNon.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\ZoneWiseSummaryDNNon.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\ZoneWiseSummaryNon.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\ZoneWiseSummary.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\BrWiseMSummary.rdlc" />
+    <EmbeddedResource Include="ReportFile\RDLCFIle\ZoneWiseMDetail.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SvcRef_BTCLBoss\" />
+    <WCFMetadataStorage Include="Service References\SvcRef_BTCL\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59670</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59670/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

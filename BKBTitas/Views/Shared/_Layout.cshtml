@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKB-TGTDCL</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+    <script src="~/scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <style>
+        .field_set {
+            border-color: #F00;
+            border-style: solid;
+        }
+
+        .scheduler-border {
+            border-color: #F00;
+            border-style: solid;
+        }
+
+        .scheduler-border2 {
+            color: coral;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba( 255, 255, 255, .8 ) url('../../Images/ajax-loader.gif') 50% 50% no-repeat;
+        }
+
+        /* When the body has the loading class, we turn
+           the scrollbar off with overflow:hidden */
+        body.loading .modal {
+            overflow: hidden;   
+        }
+
+        /* Anytime the body has the loading class, our
+           modal element will be visible */
+        body.loading .modal {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                @if (Session["LoginCredentials"] != null)
+                {
+                    @Html.ActionLink("BKB-TITAS", "Welcome", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    <img src="~/Images/logo.png" class="img-center" height="50" width="50" />
+                }
+                else
+                {
+                    @Html.ActionLink("BKB-TITAS", "Index", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                    <img src="~/Images/logo.png" class="img-center" height="50" width="50" />
+                }
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @Html.Partial("_MenuPartial")
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Session["LoginCredentials"] != null)
+                    {
+                        var loginDetails = (BKBTitas.Models.ViewModel.LoginModels)Session["LoginCredentials"];
+                        <li style="color:green;font-weight:bold;">@loginDetails.userName<br/>@loginDetails.UserMobile</li>
+                        <li>@Html.ActionLink("Logout", "LogOff", "Login")</li>
+                        <li><span class="glyphicon-log-out"></span></li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                        <li><span class="glyphicon-log-out"></span></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content" style="background:#9bc5c3"> @*#9bc5c3*@
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - TGTDCL GAS Bill collection system. Developed By ICT Operation Dept., BKB</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+2019-12-15 18:16:08,504 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-15 18:16:09,441 [6] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-15 18:16:37,365 [8] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Demand Draft Request:bank/api/v1/demand-note/invoice/11910000008105
+2019-12-15 18:16:37,412 [8] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Demand Draft request:bank/api/v1/demand-note/invoice/11910000008105
+2019-12-15 18:16:37,537 [8] ERROR BKBTitas.Controllers.NMBillnDDController - Non Metered Demand Draft Request:Could not convert string to DateTime: 31-12-2020. Path 'data.dueDate', line 1, position 99.
+2019-12-15 18:19:05,926 [8] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-15 18:19:07,618 [8] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-15 18:19:28,545 [8] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Demand Draft Request:bank/api/v1/demand-note/invoice/11910000008105
+2019-12-15 18:19:54,331 [8] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Demand Draft request:bank/api/v1/demand-note/invoice/11910000008105
+2019-12-15 18:22:40,186 [12] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-15 18:22:42,553 [12] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-15 18:22:52,534 [13] DEBUG BKBTitas.Controllers.NMBillnDDController - Non-Metered Demand Draft Request:bank/api/v1/demand-note/invoice/11910000008105
+2019-12-15 18:22:52,575 [13] DEBUG BKBTitas.Controllers.NMBillnDDController - {"status":"success","message":"Success","data":{"invoiceNo":"11910000008105","dueDate":"31-12-2020","paymentAmount":1000,"customerCode":"0119100035610","customerId":1395128,"customerName":"HAZI MD. ANIS UDDIN","connectionAddress":"AMBAG  KONABARI GAZIPUR","mobile":"0"}}

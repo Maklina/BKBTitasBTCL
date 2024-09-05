@@ -1,0 +1,4 @@
+2021-12-15 10:51:58,184 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-12-15 10:52:02,050 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-12-15 11:10:15,873 [23] DEBUG BKBTitas.Controllers.BTCLController - <?xml version="1.0" encoding="utf-16"?><tPaymentCancelRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><TXNNumber>1215020705</TXNNumber><UserID>BKBank01</UserID><TokenNumber>-1316756536250168022</TokenNumber><BranchCode>3031</BranchCode><BankCode>020</BankCode><BillNo>R210902222202222</BillNo><BillStatus>P</BillStatus></tPaymentCancelRequest>
+2021-12-15 11:10:19,017 [23] ERROR BKBTitas.Controllers.BTCLController - Error:9-Invalid Data / Data not found

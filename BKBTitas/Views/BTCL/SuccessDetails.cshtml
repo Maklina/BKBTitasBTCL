@@ -1,0 +1,11 @@
+﻿<hr />
+@if (TempData["retMsg"] != null)
+{
+    <h4 style="color:red;">@TempData["retMsg"]</h4>
+}
+@if (TempData["retSuccess"] != null)
+{
+    <h5 style="color:green;">@TempData["retSuccess"]</h5>
+}
+<hr/>
+@Html.ActionLink("Bill Collection", "Index", "BTCL", new { @class = "btn btn-primary" })

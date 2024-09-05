@@ -1,0 +1,61 @@
+﻿@model BKBTitas.Models.ViewModel.BTCLBillDetailsModel
+@{
+    ViewBag.Title = "CancelPayment";
+}
+
+<h4 style="text-align:center">CANCEL BTCL Bill Collection</h4>
+
+<h4 style="color:green;font-weight:bold">@TempData["sucMsg"]</h4>
+<h4 style="color:red;font-weight:bold">@TempData["errMsg"]</h4>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.BillNo, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.BillNo, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.BillNo, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.CancelReason, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.CancelReason, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CancelReason, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-3">
+            <input type="submit" value="Submit" id="btnSubmit" class="btn btn-default btn-primary" />
+            @Html.ActionLink("Back", "BillCollection", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnSubmit").click(function () {
+            debugger;
+            var message = validateInput();
+            if (message == "true") {
+                confirm("Do you want to continue?");
+            } else {
+                alert(message);
+                return false;
+            }
+        });
+    });
+    function validateInput() {
+        debugger;
+        var message = "";
+        var CancelReason = $("#CancelReason").val();
+        if (CancelReason.length == 0) {
+            message = message + "Please input Cancel Reason.*\n";
+        }
+
+        return message.length == 0 ? "true" : message;
+    }
+</script>

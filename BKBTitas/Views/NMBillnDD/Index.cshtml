@@ -1,0 +1,112 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<BKBTitas.Models.ViewModel.BillViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4 style="text-align:center;font-weight:bold">TITAS GAS(NON METERED) - BRANCH DAILY COLLECTION</h4>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        @Html.Label("Search by Br code,Customer Code, Payment ID, Txn ID", htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-3">
+            @Html.Editor("searchString", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+        </div>
+        <div class="form-group col-md-2">
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </div>
+    </div>
+}
+@Html.ActionLink("Pay New Bill", "NMBill", null, new { @class = "btn btn-primary" }) <b>Todays Collection Number of Bill: @Model.Count() Amount: @Model.Sum(i => i.totalAmount)</b>
+<h4>@TempData["retMsg"]</h4>
+<table class="table">
+    <tr>
+        <th>
+            Br. Routing No
+        </th>
+        <th>
+            Payment ID
+        </th>
+        <th>
+            Customer Code
+        </th>
+        <th>
+            Cust. Name
+        </th>
+        <th>
+            Cust. Address
+        </th>
+        <th>
+            Cust. Mobile
+        </th>
+        <th>
+            Bank Txn ID
+        </th>
+        <th>
+            Bill Amount
+        </th>
+        
+        <th>
+            Total Amount
+        </th>
+        <th>
+            
+        </th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.branchRoutingNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.paymentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerMobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bankTransactionId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.totalAmount)
+                </td>
+                <td>
+                    @Html.ActionLink("Cancel", "CancelPayment", new { paymentId = item.paymentId }, new { @class = "btn btn-primary btn-danger" })
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td>No data found!</td>
+        </tr>
+    }
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page }))
+<script>
+    $(function () {
+        $('#tbldata').paging({ limit: 100 });
+    })
+</script>

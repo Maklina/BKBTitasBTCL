@@ -1,0 +1,2025 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BKBTitasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BKBTitas.dbo.BankTxnIDSequence' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BankTxnIDSequence">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="branch_code" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="branch_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="50" />
+          <Property Name="BBCode" Type="varchar" MaxLength="4" />
+          <Property Name="RoutingNo" Type="varchar" MaxLength="50" />
+          <Property Name="BtclCode" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="BtclBillDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchCode" Type="varchar" MaxLength="20" />
+          <Property Name="BtclBranchCode" Type="varchar" MaxLength="200" />
+          <Property Name="BillNumber" Type="varchar" MaxLength="200" />
+          <Property Name="ExchangeCode" Type="varchar" MaxLength="200" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="200" />
+          <Property Name="AccountNumber" Type="varchar" MaxLength="200" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastPayDate" Type="varchar" MaxLength="200" />
+          <Property Name="TxnNumber" Type="varchar" MaxLength="200" />
+          <Property Name="BillMonth" Type="varchar" MaxLength="200" />
+          <Property Name="BillYear" Type="varchar" MaxLength="200" />
+          <Property Name="BTCLAmount" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="OverdueAmount" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="VAT" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TotalAmount" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="BillPayStatus" Type="varchar" MaxLength="200" />
+          <Property Name="ServiceNumber" Type="varchar" MaxLength="200" />
+          <Property Name="NewPayStatus" Type="varchar" MaxLength="20" />
+          <Property Name="CancelReason" Type="varchar" MaxLength="200" />
+          <Property Name="CanceledBy" Type="varchar" MaxLength="20" />
+          <Property Name="Canceledon" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Createon" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updatedon" Type="datetime" />
+          <Property Name="Ureatedby" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BtclBillDetailLog">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchCode" Type="varchar" MaxLength="20" />
+          <Property Name="BtclBranchCode" Type="varchar" MaxLength="200" />
+          <Property Name="BillNumber" Type="varchar" MaxLength="200" />
+          <Property Name="ExchangeCode" Type="varchar" MaxLength="200" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="200" />
+          <Property Name="AccountNumber" Type="varchar" MaxLength="200" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastPayDate" Type="varchar" MaxLength="200" />
+          <Property Name="TxnNumber" Type="varchar" MaxLength="200" />
+          <Property Name="BillMonth" Type="varchar" MaxLength="200" />
+          <Property Name="BillYear" Type="varchar" MaxLength="200" />
+          <Property Name="BTCLAmount" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="OverdueAmount" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="VAT" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TotalAmount" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="BillPayStatus" Type="varchar" MaxLength="200" />
+          <Property Name="ServiceNumber" Type="varchar" MaxLength="200" />
+          <Property Name="NewPayStatus" Type="varchar" MaxLength="20" />
+          <Property Name="CancelReason" Type="varchar" MaxLength="200" />
+          <Property Name="CanceledBy" Type="varchar" MaxLength="20" />
+          <Property Name="Canceledon" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Createon" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updatedon" Type="datetime" />
+          <Property Name="Ureatedby" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BTCLTxnID">
+          <Key>
+            <PropertyRef Name="BtclSeqID" />
+          </Key>
+          <Property Name="BtclSeqID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoginUser">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="userPass" Type="varchar" MaxLength="50" />
+          <Property Name="userName" Type="varchar" MaxLength="100" />
+          <Property Name="userRole" Type="int" Nullable="false" />
+          <Property Name="branch_code" Type="varchar" MaxLength="10" />
+          <Property Name="user_status" Type="varchar" MaxLength="1" />
+          <Property Name="first_login" Type="varchar" MaxLength="1" />
+          <Property Name="makerID" Type="varchar" MaxLength="20" />
+          <Property Name="makerTime" Type="date" />
+          <Property Name="checkerID" Type="varchar" MaxLength="20" />
+          <Property Name="checkerTime" Type="date" />
+          <Property Name="updatedBY" Type="varchar" MaxLength="20" />
+          <Property Name="updateTime" Type="date" />
+          <Property Name="UserMobile" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MainMenu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="main_menu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="menuStatus" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="createdBy" Type="varchar" MaxLength="20" />
+          <Property Name="createdOn" Type="date" />
+        </EntityType>
+        <EntityType Name="MeteredBillDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paymentId" Type="int" Nullable="false" />
+          <Property Name="transactionDate" Type="varchar" MaxLength="20" />
+          <Property Name="customerCode" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="transactionStatus" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="invoiceNo" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="invoiceAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="paidAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="sourceTaxAmount" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="revenueStamp" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="zone" Type="varchar" MaxLength="25" />
+          <Property Name="creator" Type="varchar" MaxLength="25" />
+          <Property Name="creationTime" Type="varchar" MaxLength="25" />
+          <Property Name="postingTime" Type="varchar" MaxLength="25" />
+          <Property Name="bankCode" Type="varchar" MaxLength="10" />
+          <Property Name="branchCode" Type="varchar" MaxLength="10" />
+          <Property Name="branchRoutingNo" Type="varchar" MaxLength="10" />
+          <Property Name="operator" Type="varchar" MaxLength="25" />
+          <Property Name="refNo" Type="varchar" MaxLength="25" />
+          <Property Name="reason" Type="varchar" MaxLength="200" />
+          <Property Name="cancelOperator" Type="varchar" MaxLength="25" />
+          <Property Name="chalanNo" Type="varchar" MaxLength="25" />
+          <Property Name="chalanDate" Type="varchar" MaxLength="25" />
+          <Property Name="chalanBank" Type="varchar" MaxLength="200" />
+          <Property Name="chalanBranch" Type="varchar" MaxLength="200" />
+          <Property Name="remarks" Type="varchar" MaxLength="250" />
+          <Property Name="updateFlag" Type="varchar" MaxLength="1" />
+          <Property Name="updateOperator" Type="varchar" MaxLength="25" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="CustomerMobile" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="200" />
+          <Property Name="custAddress" Type="varchar" MaxLength="250" />
+          <Property Name="issueMonth" Type="varchar" MaxLength="10" />
+          <Property Name="issueDate" Type="varchar" MaxLength="10" />
+          <Property Name="transactionDateTime" Type="datetime" />
+          <Property Name="settaleDate" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="NonMeterBillDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bankCode" Type="varchar" MaxLength="10" />
+          <Property Name="branchCode" Type="varchar" MaxLength="10" />
+          <Property Name="branchRoutingNo" Type="varchar" MaxLength="10" />
+          <Property Name="paymentId" Type="int" Nullable="false" />
+          <Property Name="transactionDate" Type="varchar" MaxLength="20" />
+          <Property Name="customerCode" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="CustomerMobile" Type="varchar" MaxLength="50" />
+          <Property Name="transactionDateTime" Type="datetime" />
+          <Property Name="particulars" Type="varchar" MaxLength="100" />
+          <Property Name="bankTransactionId" Type="varchar" MaxLength="100" />
+          <Property Name="voucherDate" Type="varchar" MaxLength="100" />
+          <Property Name="appliancesummary" Type="varchar" MaxLength="100" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="100" />
+          <Property Name="custAddress" Type="varchar" MaxLength="250" />
+          <Property Name="billPeriod" Type="varchar" MaxLength="100" />
+          <Property Name="batchNo" Type="varchar" MaxLength="200" />
+          <Property Name="invoiceNo" Type="varchar" MaxLength="25" />
+          <Property Name="invoiceAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Surcharge" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="paidAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="sourceTaxAmount" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="revenueStamp" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="transactionStatus" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="zone" Type="varchar" MaxLength="25" />
+          <Property Name="creator" Type="varchar" MaxLength="25" />
+          <Property Name="creationTime" Type="varchar" MaxLength="25" />
+          <Property Name="postingTime" Type="varchar" MaxLength="25" />
+          <Property Name="operator" Type="varchar" MaxLength="25" />
+          <Property Name="refNo" Type="varchar" MaxLength="25" />
+          <Property Name="reason" Type="varchar" MaxLength="200" />
+          <Property Name="cancelOperator" Type="varchar" MaxLength="25" />
+          <Property Name="chalanNo" Type="varchar" MaxLength="25" />
+          <Property Name="chalanDate" Type="varchar" MaxLength="25" />
+          <Property Name="chalanBank" Type="varchar" MaxLength="200" />
+          <Property Name="chalanBranch" Type="varchar" MaxLength="200" />
+          <Property Name="remarks" Type="varchar" MaxLength="250" />
+          <Property Name="updateFlag" Type="varchar" MaxLength="1" />
+          <Property Name="updateOperator" Type="varchar" MaxLength="25" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="created_on" Type="datetime" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="is_cancel" Type="varchar" MaxLength="1" />
+          <Property Name="cancel_reason" Type="varchar" MaxLength="250" />
+          <Property Name="canceled_on" Type="datetime" />
+          <Property Name="cancel_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="role_priority" Type="int" />
+        </EntityType>
+        <EntityType Name="RoleMenuMapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserRoleId" Type="int" Nullable="false" />
+          <Property Name="SubMenuId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubMenu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="main_menu_id" Type="int" Nullable="false" />
+          <Property Name="sub_menu_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="menu_action" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="menu_controller" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'BKBTitas.dbo.TempBranch' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TempBranch">
+          <Property Name="Bank_code" Type="nvarchar" MaxLength="255" />
+          <Property Name="Bank_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Dist_code" Type="nvarchar" MaxLength="255" />
+          <Property Name="Dist_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Branch_code" Type="nvarchar" MaxLength="255" />
+          <Property Name="Branch_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Routing_No" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <EntityType Name="TitasZone">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="zoneName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="zoneCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="zoneMobile" Type="varchar" MaxLength="50" />
+          <Property Name="zoneEmail" Type="varchar" MaxLength="200" />
+          <Property Name="isDuplicate" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BKBTitas.dbo.BTCLDailyReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BTCLDailyReport">
+          <Key>
+            <PropertyRef Name="Bill Amount" />
+            <PropertyRef Name="VAT" />
+            <PropertyRef Name="TotalAmount" />
+          </Key>
+          <Property Name="SL" Type="bigint" />
+          <Property Name="Createon" Type="datetime" />
+          <Property Name="Bill No/ Invoice ID" Type="varchar" MaxLength="200" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="200" />
+          <Property Name="BillMonth" Type="varchar" MaxLength="200" />
+          <Property Name="BillYear" Type="varchar" MaxLength="200" />
+          <Property Name="Bill Amount" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="VAT" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TotalAmount" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TxnNumber" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BKBTitas.dbo.BTCLMonthlyReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BTCLMonthlyReport">
+          <Key>
+            <PropertyRef Name="Bill amount" />
+            <PropertyRef Name="VAT" />
+            <PropertyRef Name="TotalAmount" />
+          </Key>
+          <Property Name="Bill No./ Invoice ID" Type="varchar" MaxLength="200" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="200" />
+          <Property Name="BillMonth" Type="varchar" MaxLength="200" />
+          <Property Name="BillYear" Type="varchar" MaxLength="200" />
+          <Property Name="Bill amount" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="VAT" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TotalAmount" Type="numeric" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TxnNumber" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BKBTitas.dbo.MeteredReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MeteredReport">
+          <Key>
+            <PropertyRef Name="branch_name" />
+            <PropertyRef Name="paymentId" />
+            <PropertyRef Name="customerCode" />
+            <PropertyRef Name="invoiceNo" />
+            <PropertyRef Name="invoiceAmount" />
+            <PropertyRef Name="sourceTaxAmount" />
+            <PropertyRef Name="paidAmount" />
+            <PropertyRef Name="revenueStamp" />
+          </Key>
+          <Property Name="zone" Type="varchar" MaxLength="25" />
+          <Property Name="branch_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RoutingNo" Type="varchar" MaxLength="50" />
+          <Property Name="transactionDateTime" Type="date" />
+          <Property Name="paymentId" Type="int" Nullable="false" />
+          <Property Name="refNo" Type="varchar" MaxLength="25" />
+          <Property Name="customerCode" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="200" />
+          <Property Name="invoiceNo" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="invoiceAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="sourceTaxAmount" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="paidAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="revenueStamp" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BKBTitas.dbo.Non_MeteredReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Non_MeteredReport">
+          <Key>
+            <PropertyRef Name="zone" />
+            <PropertyRef Name="branch_name" />
+            <PropertyRef Name="customerCode" />
+            <PropertyRef Name="paymentId" />
+            <PropertyRef Name="BillAmount" />
+            <PropertyRef Name="paidAmount" />
+          </Key>
+          <Property Name="zone" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="branch_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RoutingNo" Type="varchar" MaxLength="50" />
+          <Property Name="customerCode" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="100" />
+          <Property Name="paymentId" Type="int" Nullable="false" />
+          <Property Name="bankTransactionId" Type="varchar" MaxLength="100" />
+          <Property Name="transactionDateTime" Type="date" />
+          <Property Name="particulars" Type="varchar" MaxLength="100" />
+          <Property Name="batchNo" Type="varchar" MaxLength="200" />
+          <Property Name="BillAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Surcharge" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="paidAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="revenueStamp" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <Association Name="fk_LoginUser_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="LoginUser" Type="Self.LoginUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LoginUser">
+              <PropertyRef Name="userRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleMenuMap_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleMenuMapping" Type="Self.RoleMenuMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RoleMenuMapping">
+              <PropertyRef Name="UserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleMenuMap_SubMenu">
+          <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="1" />
+          <End Role="RoleMenuMapping" Type="Self.RoleMenuMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubMenu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RoleMenuMapping">
+              <PropertyRef Name="SubMenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SMainMenu_Role">
+          <End Role="MainMenu" Type="Self.MainMenu" Multiplicity="1" />
+          <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainMenu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SubMenu">
+              <PropertyRef Name="main_menu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="BranchWiseBTCLBillDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseMeterCancelDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseMeterCustDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseMeterDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseMeterSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseNMDNoteCancelDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseNMDNoteDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseNonMeterCancelDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseNonMeterCustDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseNonMeterDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseNonMeterDNoteSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseNonMeterDNSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchWiseNonMeterSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="BranchZoneNonMeterSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetBankTxnID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="value" Type="bigint" Mode="InOut" />
+        </Function>
+        <Function Name="GetBtclBankTxnID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="value" Type="bigint" Mode="InOut" />
+        </Function>
+        <Function Name="GetBTCLTxnSEQUENCE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="value" Type="bigint" Mode="InOut" />
+        </Function>
+        <Function Name="GetSEQUENCE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="value" Type="bigint" Mode="InOut" />
+        </Function>
+        <Function Name="ZoneWiseSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ZoneWiseSummaryDNNon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ZoneWiseSummaryNon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+          <Parameter Name="dtTo" Type="varchar" Mode="In" />
+          <Parameter Name="branch" Type="varchar" Mode="In" />
+          <Parameter Name="userRole" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="BKBTitasModelStoreContainer">
+          <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BtclBillDetail" EntityType="Self.BtclBillDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BtclBillDetailLog" EntityType="Self.BtclBillDetailLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BTCLTxnID" EntityType="Self.BTCLTxnID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginUser" EntityType="Self.LoginUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainMenu" EntityType="Self.MainMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeteredBillDetails" EntityType="Self.MeteredBillDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NonMeterBillDetails" EntityType="Self.NonMeterBillDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleMenuMapping" EntityType="Self.RoleMenuMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubMenu" EntityType="Self.SubMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TitasZone" EntityType="Self.TitasZone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankTxnIDSequence" EntityType="Self.BankTxnIDSequence" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BankTxnIDSequence].[ID] AS [ID]
+    FROM [dbo].[BankTxnIDSequence] AS [BankTxnIDSequence]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BTCLDailyReport" EntityType="Self.BTCLDailyReport" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BTCLDailyReport].[SL] AS [SL], 
+    [BTCLDailyReport].[Createon] AS [Createon], 
+    [BTCLDailyReport].[Bill No/ Invoice ID] AS [Bill No/ Invoice ID], 
+    [BTCLDailyReport].[PhoneNumber] AS [PhoneNumber], 
+    [BTCLDailyReport].[BillMonth] AS [BillMonth], 
+    [BTCLDailyReport].[BillYear] AS [BillYear], 
+    [BTCLDailyReport].[Bill Amount] AS [Bill Amount], 
+    [BTCLDailyReport].[VAT] AS [VAT], 
+    [BTCLDailyReport].[TotalAmount] AS [TotalAmount], 
+    [BTCLDailyReport].[TxnNumber] AS [TxnNumber]
+    FROM [dbo].[BTCLDailyReport] AS [BTCLDailyReport]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BTCLMonthlyReport" EntityType="Self.BTCLMonthlyReport" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BTCLMonthlyReport].[Bill No./ Invoice ID] AS [Bill No./ Invoice ID], 
+    [BTCLMonthlyReport].[PhoneNumber] AS [PhoneNumber], 
+    [BTCLMonthlyReport].[BillMonth] AS [BillMonth], 
+    [BTCLMonthlyReport].[BillYear] AS [BillYear], 
+    [BTCLMonthlyReport].[Bill amount] AS [Bill amount], 
+    [BTCLMonthlyReport].[VAT] AS [VAT], 
+    [BTCLMonthlyReport].[TotalAmount] AS [TotalAmount], 
+    [BTCLMonthlyReport].[TxnNumber] AS [TxnNumber]
+    FROM [dbo].[BTCLMonthlyReport] AS [BTCLMonthlyReport]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MeteredReport" EntityType="Self.MeteredReport" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MeteredReport].[zone] AS [zone], 
+    [MeteredReport].[branch_name] AS [branch_name], 
+    [MeteredReport].[RoutingNo] AS [RoutingNo], 
+    [MeteredReport].[transactionDateTime] AS [transactionDateTime], 
+    [MeteredReport].[paymentId] AS [paymentId], 
+    [MeteredReport].[refNo] AS [refNo], 
+    [MeteredReport].[customerCode] AS [customerCode], 
+    [MeteredReport].[CustomerName] AS [CustomerName], 
+    [MeteredReport].[invoiceNo] AS [invoiceNo], 
+    [MeteredReport].[invoiceAmount] AS [invoiceAmount], 
+    [MeteredReport].[sourceTaxAmount] AS [sourceTaxAmount], 
+    [MeteredReport].[paidAmount] AS [paidAmount], 
+    [MeteredReport].[revenueStamp] AS [revenueStamp]
+    FROM [dbo].[MeteredReport] AS [MeteredReport]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Non_MeteredReport" EntityType="Self.Non_MeteredReport" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Non_MeteredReport].[zone] AS [zone], 
+    [Non_MeteredReport].[branch_name] AS [branch_name], 
+    [Non_MeteredReport].[RoutingNo] AS [RoutingNo], 
+    [Non_MeteredReport].[customerCode] AS [customerCode], 
+    [Non_MeteredReport].[CustomerName] AS [CustomerName], 
+    [Non_MeteredReport].[paymentId] AS [paymentId], 
+    [Non_MeteredReport].[bankTransactionId] AS [bankTransactionId], 
+    [Non_MeteredReport].[transactionDateTime] AS [transactionDateTime], 
+    [Non_MeteredReport].[particulars] AS [particulars], 
+    [Non_MeteredReport].[batchNo] AS [batchNo], 
+    [Non_MeteredReport].[BillAmount] AS [BillAmount], 
+    [Non_MeteredReport].[Surcharge] AS [Surcharge], 
+    [Non_MeteredReport].[paidAmount] AS [paidAmount], 
+    [Non_MeteredReport].[revenueStamp] AS [revenueStamp]
+    FROM [dbo].[Non_MeteredReport] AS [Non_MeteredReport]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_LoginUser_Role" Association="Self.fk_LoginUser_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="LoginUser" EntitySet="LoginUser" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleMenuMap_Role" Association="Self.fk_RoleMenuMap_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleMenuMapping" EntitySet="RoleMenuMapping" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleMenuMap_SubMenu" Association="Self.fk_RoleMenuMap_SubMenu">
+            <End Role="SubMenu" EntitySet="SubMenu" />
+            <End Role="RoleMenuMapping" EntitySet="RoleMenuMapping" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SMainMenu_Role" Association="Self.fk_SMainMenu_Role">
+            <End Role="MainMenu" EntitySet="MainMenu" />
+            <End Role="SubMenu" EntitySet="SubMenu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BKBTitasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="branch_code" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branch_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BBCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="RoutingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BtclCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BtclBillDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BtclBranchCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ExchangeCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastPayDate" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TxnNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillMonth" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillYear" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BTCLAmount" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="OverdueAmount" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="VAT" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="BillPayStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NewPayStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CancelReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CanceledBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Canceledon" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Createon" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updatedon" Type="DateTime" Precision="3" />
+          <Property Name="Ureatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BtclBillDetailLog">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BtclBranchCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ExchangeCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastPayDate" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TxnNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillMonth" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillYear" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BTCLAmount" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="OverdueAmount" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="VAT" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="BillPayStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NewPayStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CancelReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CanceledBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Canceledon" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Createon" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updatedon" Type="DateTime" Precision="3" />
+          <Property Name="Ureatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BTCLTxnID">
+          <Key>
+            <PropertyRef Name="BtclSeqID" />
+          </Key>
+          <Property Name="BtclSeqID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="LoginUser">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userPass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="userRole" Type="Int32" Nullable="false" />
+          <Property Name="branch_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="user_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="first_login" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="makerID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="makerTime" Type="DateTime" Precision="0" />
+          <Property Name="checkerID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="checkerTime" Type="DateTime" Precision="0" />
+          <Property Name="updatedBY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="updateTime" Type="DateTime" Precision="0" />
+          <Property Name="UserMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Role" Relationship="Self.fk_LoginUser_Role" FromRole="LoginUser" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="MainMenu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="main_menu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="menuStatus" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createdBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="createdOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="SubMenus" Relationship="Self.fk_SMainMenu_Role" FromRole="MainMenu" ToRole="SubMenu" />
+        </EntityType>
+        <EntityType Name="MeteredBillDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paymentId" Type="Int32" Nullable="false" />
+          <Property Name="transactionDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="customerCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="transactionStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="invoiceNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="invoiceAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="paidAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="sourceTaxAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="revenueStamp" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="zone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="creator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="creationTime" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="postingTime" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="bankCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="branchCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="branchRoutingNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="operator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="refNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="reason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="cancelOperator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="chalanNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="chalanDate" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="chalanBank" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="chalanBranch" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="updateFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="updateOperator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="CustomerMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="custAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="issueMonth" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="issueDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="transactionDateTime" Type="DateTime" Precision="3" />
+          <Property Name="settaleDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NonMeterBillDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bankCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="branchCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="branchRoutingNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="paymentId" Type="Int32" Nullable="false" />
+          <Property Name="transactionDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="customerCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="transactionDateTime" Type="DateTime" Precision="3" />
+          <Property Name="particulars" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="bankTransactionId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="voucherDate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="appliancesummary" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="custAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="billPeriod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="batchNo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="invoiceNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="invoiceAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Surcharge" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="paidAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="sourceTaxAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="revenueStamp" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="transactionStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="creator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="creationTime" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="postingTime" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="operator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="refNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="reason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="cancelOperator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="chalanNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="chalanDate" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="chalanBank" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="chalanBranch" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="updateFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="updateOperator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="created_on" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="is_cancel" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="cancel_reason" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="canceled_on" Type="DateTime" Precision="3" />
+          <Property Name="cancel_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="role_priority" Type="Int32" />
+          <NavigationProperty Name="LoginUsers" Relationship="Self.fk_LoginUser_Role" FromRole="Role" ToRole="LoginUser" />
+          <NavigationProperty Name="RoleMenuMappings" Relationship="Self.fk_RoleMenuMap_Role" FromRole="Role" ToRole="RoleMenuMapping" />
+        </EntityType>
+        <EntityType Name="RoleMenuMapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+          <Property Name="SubMenuId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.fk_RoleMenuMap_Role" FromRole="RoleMenuMapping" ToRole="Role" />
+          <NavigationProperty Name="SubMenu" Relationship="Self.fk_RoleMenuMap_SubMenu" FromRole="RoleMenuMapping" ToRole="SubMenu" />
+        </EntityType>
+        <EntityType Name="SubMenu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="main_menu_id" Type="Int32" Nullable="false" />
+          <Property Name="sub_menu_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="menu_action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="menu_controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MainMenu" Relationship="Self.fk_SMainMenu_Role" FromRole="SubMenu" ToRole="MainMenu" />
+          <NavigationProperty Name="RoleMenuMappings" Relationship="Self.fk_RoleMenuMap_SubMenu" FromRole="SubMenu" ToRole="RoleMenuMapping" />
+        </EntityType>
+        <EntityType Name="TitasZone">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="zoneName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zoneCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zoneMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zoneEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="isDuplicate" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BankTxnIDSequence">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="BTCLDailyReport">
+          <Key>
+            <PropertyRef Name="Bill_Amount" />
+            <PropertyRef Name="VAT" />
+            <PropertyRef Name="TotalAmount" />
+          </Key>
+          <Property Name="SL" Type="Int64" />
+          <Property Name="Createon" Type="DateTime" Precision="3" />
+          <Property Name="Bill_No__Invoice_ID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillMonth" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillYear" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Bill_Amount" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="VAT" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TxnNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BTCLMonthlyReport">
+          <Key>
+            <PropertyRef Name="Bill_amount" />
+            <PropertyRef Name="VAT" />
+            <PropertyRef Name="TotalAmount" />
+          </Key>
+          <Property Name="Bill_No___Invoice_ID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillMonth" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillYear" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Bill_amount" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="VAT" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="TxnNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MeteredReport">
+          <Key>
+            <PropertyRef Name="branch_name" />
+            <PropertyRef Name="paymentId" />
+            <PropertyRef Name="customerCode" />
+            <PropertyRef Name="invoiceNo" />
+            <PropertyRef Name="invoiceAmount" />
+            <PropertyRef Name="sourceTaxAmount" />
+            <PropertyRef Name="paidAmount" />
+            <PropertyRef Name="revenueStamp" />
+          </Key>
+          <Property Name="zone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="branch_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoutingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="transactionDateTime" Type="DateTime" Precision="0" />
+          <Property Name="paymentId" Type="Int32" Nullable="false" />
+          <Property Name="refNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="customerCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="invoiceNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="invoiceAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="sourceTaxAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="paidAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="revenueStamp" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Non_MeteredReport">
+          <Key>
+            <PropertyRef Name="zone" />
+            <PropertyRef Name="branch_name" />
+            <PropertyRef Name="customerCode" />
+            <PropertyRef Name="paymentId" />
+            <PropertyRef Name="BillAmount" />
+            <PropertyRef Name="paidAmount" />
+          </Key>
+          <Property Name="zone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branch_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoutingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="customerCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="paymentId" Type="Int32" Nullable="false" />
+          <Property Name="bankTransactionId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="transactionDateTime" Type="DateTime" Precision="0" />
+          <Property Name="particulars" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="batchNo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Surcharge" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="paidAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="revenueStamp" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <Association Name="fk_LoginUser_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="LoginUser" Type="Self.LoginUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LoginUser">
+              <PropertyRef Name="userRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SMainMenu_Role">
+          <End Role="MainMenu" Type="Self.MainMenu" Multiplicity="1" />
+          <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainMenu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SubMenu">
+              <PropertyRef Name="main_menu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleMenuMap_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleMenuMapping" Type="Self.RoleMenuMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RoleMenuMapping">
+              <PropertyRef Name="UserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleMenuMap_SubMenu">
+          <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="1" />
+          <End Role="RoleMenuMapping" Type="Self.RoleMenuMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubMenu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RoleMenuMapping">
+              <PropertyRef Name="SubMenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BKBTitasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="BtclBillDetails" EntityType="Self.BtclBillDetail" />
+          <EntitySet Name="BtclBillDetailLogs" EntityType="Self.BtclBillDetailLog" />
+          <EntitySet Name="BTCLTxnIDs" EntityType="Self.BTCLTxnID" />
+          <EntitySet Name="LoginUsers" EntityType="Self.LoginUser" />
+          <EntitySet Name="MainMenus" EntityType="Self.MainMenu" />
+          <EntitySet Name="MeteredBillDetails" EntityType="Self.MeteredBillDetail" />
+          <EntitySet Name="NonMeterBillDetails" EntityType="Self.NonMeterBillDetail" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="RoleMenuMappings" EntityType="Self.RoleMenuMapping" />
+          <EntitySet Name="SubMenus" EntityType="Self.SubMenu" />
+          <EntitySet Name="TitasZones" EntityType="Self.TitasZone" />
+          <EntitySet Name="BankTxnIDSequences" EntityType="Self.BankTxnIDSequence" />
+          <EntitySet Name="BTCLDailyReports" EntityType="Self.BTCLDailyReport" />
+          <EntitySet Name="BTCLMonthlyReports" EntityType="Self.BTCLMonthlyReport" />
+          <EntitySet Name="MeteredReports" EntityType="Self.MeteredReport" />
+          <EntitySet Name="Non_MeteredReport" EntityType="Self.Non_MeteredReport" />
+          <AssociationSet Name="fk_LoginUser_Role" Association="Self.fk_LoginUser_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="LoginUser" EntitySet="LoginUsers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SMainMenu_Role" Association="Self.fk_SMainMenu_Role">
+            <End Role="MainMenu" EntitySet="MainMenus" />
+            <End Role="SubMenu" EntitySet="SubMenus" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleMenuMap_Role" Association="Self.fk_RoleMenuMap_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="RoleMenuMapping" EntitySet="RoleMenuMappings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleMenuMap_SubMenu" Association="Self.fk_RoleMenuMap_SubMenu">
+            <End Role="SubMenu" EntitySet="SubMenus" />
+            <End Role="RoleMenuMapping" EntitySet="RoleMenuMappings" />
+          </AssociationSet>
+          <FunctionImport Name="BranchWiseBTCLBillDetails" ReturnType="Collection(BKBTitasModel.BranchWiseBTCLBillDetails_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseMeterCancelDetails" ReturnType="Collection(BKBTitasModel.BranchWiseMeterCancelDetails_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseMeterCustDetails" ReturnType="Collection(BKBTitasModel.BranchWiseMeterCustDetails_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseMeterDetails" ReturnType="Collection(BKBTitasModel.BranchWiseMeterDetails_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseMeterSummary" ReturnType="Collection(BKBTitasModel.BranchWiseMeterSummary_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseNMDNoteCancelDetails" ReturnType="Collection(BKBTitasModel.BranchWiseNMDNoteCancelDetails_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseNMDNoteDetails" ReturnType="Collection(BKBTitasModel.BranchWiseNMDNoteDetails_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseNonMeterCancelDetails" ReturnType="Collection(BKBTitasModel.BranchWiseNonMeterCancelDetails_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseNonMeterCustDetails" ReturnType="Collection(BKBTitasModel.BranchWiseNonMeterCustDetails_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseNonMeterDetails" ReturnType="Collection(BKBTitasModel.BranchWiseNonMeterDetails_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseNonMeterDNoteSummary" ReturnType="Collection(BKBTitasModel.BranchWiseNonMeterDNoteSummary_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseNonMeterDNSummary" ReturnType="Collection(BKBTitasModel.BranchWiseNonMeterDNSummary_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchWiseNonMeterSummary" ReturnType="Collection(BKBTitasModel.BranchWiseNonMeterSummary_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BranchZoneNonMeterSummary" ReturnType="Collection(BKBTitasModel.BranchZoneNonMeterSummary_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetBankTxnID" ReturnType="Collection(Int64)">
+            <Parameter Name="value" Mode="InOut" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetBtclBankTxnID" ReturnType="Collection(Int64)">
+            <Parameter Name="value" Mode="InOut" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetBTCLTxnSEQUENCE">
+            <Parameter Name="value" Mode="InOut" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetSEQUENCE">
+            <Parameter Name="value" Mode="InOut" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="ZoneWiseSummary" ReturnType="Collection(BKBTitasModel.ZoneWiseSummary_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ZoneWiseSummaryDNNon" ReturnType="Collection(BKBTitasModel.ZoneWiseSummaryDNNon_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ZoneWiseSummaryNon" ReturnType="Collection(BKBTitasModel.ZoneWiseSummaryNon_Result)">
+            <Parameter Name="dtFrom" Mode="In" Type="String" />
+            <Parameter Name="dtTo" Mode="In" Type="String" />
+            <Parameter Name="branch" Mode="In" Type="String" />
+            <Parameter Name="userRole" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="BranchWiseBTCLBillDetails_Result">
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BillNumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="TxnNumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="BillMonth" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="BillYear" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="BillPayStatus" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="BTCLAmount" Nullable="false" Precision="15" Scale="3" />
+          <Property Type="Decimal" Name="VAT" Nullable="false" Precision="15" Scale="3" />
+          <Property Type="Decimal" Name="TotalAmount" Nullable="false" Precision="15" Scale="3" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseMeterCancelDetails_Result">
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="transactionDateTime" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="paymentId" Nullable="false" />
+          <Property Type="String" Name="refNo" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="customerCode" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="invoiceNo" Nullable="false" MaxLength="25" />
+          <Property Type="Decimal" Name="invoiceAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="sourceTaxAmount" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="paidAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="revenueStamp" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseMeterCustDetails_Result">
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="transactionDateTime" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="paymentId" Nullable="false" />
+          <Property Type="String" Name="refNo" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="customerCode" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="custAddress" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CustomerMobile" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="invoiceNo" Nullable="false" MaxLength="25" />
+          <Property Type="Decimal" Name="invoiceAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="sourceTaxAmount" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="paidAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="revenueStamp" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseMeterDetails_Result">
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="transactionDateTime" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="paymentId" Nullable="false" />
+          <Property Type="String" Name="refNo" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="customerCode" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="invoiceNo" Nullable="false" MaxLength="25" />
+          <Property Type="Decimal" Name="invoiceAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="sourceTaxAmount" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="paidAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="revenueStamp" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseMeterSummary_Result">
+          <Property Type="Int64" Name="SL" Nullable="true" />
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="NoOfCollection" Nullable="true" />
+          <Property Type="Decimal" Name="TotalBillAmo" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalAIT" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalCollection" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalRevenueStamp" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseNMDNoteCancelDetails_Result">
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="customerCode" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="paymentId" Nullable="false" />
+          <Property Type="String" Name="bankTransactionId" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="transactionDateTime" Nullable="true" Precision="23" />
+          <Property Type="String" Name="particulars" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="batchNo" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Surcharge" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="paidAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="revenueStamp" Nullable="true" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseNMDNoteDetails_Result">
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="customerCode" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="paymentId" Nullable="false" />
+          <Property Type="String" Name="bankTransactionId" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="transactionDateTime" Nullable="true" Precision="23" />
+          <Property Type="String" Name="particulars" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="batchNo" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Surcharge" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="paidAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="revenueStamp" Nullable="true" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseNonMeterCancelDetails_Result">
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="customerCode" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="paymentId" Nullable="false" />
+          <Property Type="String" Name="bankTransactionId" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="transactionDateTime" Nullable="true" Precision="23" />
+          <Property Type="String" Name="particulars" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="batchNo" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Surcharge" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="paidAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="revenueStamp" Nullable="true" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseNonMeterCustDetails_Result">
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="customerCode" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="custAddress" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CustomerMobile" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="paymentId" Nullable="false" />
+          <Property Type="String" Name="bankTransactionId" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="transactionDateTime" Nullable="true" Precision="23" />
+          <Property Type="String" Name="particulars" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="batchNo" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Surcharge" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="paidAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="revenueStamp" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="String" Name="BillOrDNote" Nullable="true" MaxLength="11" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseNonMeterDetails_Result">
+          <Property Type="String" Name="zone" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="customerCode" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="paymentId" Nullable="false" />
+          <Property Type="String" Name="bankTransactionId" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="transactionDateTime" Nullable="true" Precision="23" />
+          <Property Type="String" Name="particulars" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="batchNo" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Surcharge" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="paidAmount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="revenueStamp" Nullable="true" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseNonMeterDNoteSummary_Result">
+          <Property Type="Int64" Name="SL" Nullable="true" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="NoOfTransaction" Nullable="true" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="SurCharge" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalCollection" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalRevenueStamp" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseNonMeterDNSummary_Result">
+          <Property Type="Int64" Name="SL" Nullable="true" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="NoOfTransaction" Nullable="true" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="SurCharge" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalCollection" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalRevenueStamp" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchWiseNonMeterSummary_Result">
+          <Property Type="Int64" Name="SL" Nullable="true" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="NoOfTransaction" Nullable="true" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="SurCharge" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalCollection" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalRevenueStamp" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="BranchZoneNonMeterSummary_Result">
+          <Property Type="Int64" Name="SL" Nullable="true" />
+          <Property Type="String" Name="branch_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="RoutingNo" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="NoOfTransaction" Nullable="true" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="SurCharge" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalCollection" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalRevenueStamp" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ZoneWiseSummary_Result">
+          <Property Type="Int64" Name="SL" Nullable="true" />
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="Int32" Name="NoOfAccount" Nullable="true" />
+          <Property Type="Decimal" Name="CollectionAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="AITAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="RevenueStamp" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ZoneWiseSummaryDNNon_Result">
+          <Property Type="Int64" Name="SL" Nullable="true" />
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="Int32" Name="NoOfAccount" Nullable="true" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="SurCharge" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="RevenueStamp" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ZoneWiseSummaryNon_Result">
+          <Property Type="Int64" Name="SL" Nullable="true" />
+          <Property Type="String" Name="zone" Nullable="true" MaxLength="25" />
+          <Property Type="Int32" Name="NoOfAccount" Nullable="true" />
+          <Property Type="Decimal" Name="BillAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="SurCharge" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalAmount" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="RevenueStamp" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BKBTitasModelStoreContainer" CdmEntityContainer="BKBTitasEntities">
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="BKBTitasModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="branch_code" ColumnName="branch_code" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="BBCode" ColumnName="BBCode" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="BtclCode" ColumnName="BtclCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BtclBillDetails">
+            <EntityTypeMapping TypeName="BKBTitasModel.BtclBillDetail">
+              <MappingFragment StoreEntitySet="BtclBillDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="BtclBranchCode" ColumnName="BtclBranchCode" />
+                <ScalarProperty Name="BillNumber" ColumnName="BillNumber" />
+                <ScalarProperty Name="ExchangeCode" ColumnName="ExchangeCode" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastPayDate" ColumnName="LastPayDate" />
+                <ScalarProperty Name="TxnNumber" ColumnName="TxnNumber" />
+                <ScalarProperty Name="BillMonth" ColumnName="BillMonth" />
+                <ScalarProperty Name="BillYear" ColumnName="BillYear" />
+                <ScalarProperty Name="BTCLAmount" ColumnName="BTCLAmount" />
+                <ScalarProperty Name="OverdueAmount" ColumnName="OverdueAmount" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="BillPayStatus" ColumnName="BillPayStatus" />
+                <ScalarProperty Name="ServiceNumber" ColumnName="ServiceNumber" />
+                <ScalarProperty Name="NewPayStatus" ColumnName="NewPayStatus" />
+                <ScalarProperty Name="CancelReason" ColumnName="CancelReason" />
+                <ScalarProperty Name="CanceledBy" ColumnName="CanceledBy" />
+                <ScalarProperty Name="Canceledon" ColumnName="Canceledon" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Createon" ColumnName="Createon" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+                <ScalarProperty Name="Ureatedby" ColumnName="Ureatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BtclBillDetailLogs">
+            <EntityTypeMapping TypeName="BKBTitasModel.BtclBillDetailLog">
+              <MappingFragment StoreEntitySet="BtclBillDetailLog">
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="BtclBranchCode" ColumnName="BtclBranchCode" />
+                <ScalarProperty Name="BillNumber" ColumnName="BillNumber" />
+                <ScalarProperty Name="ExchangeCode" ColumnName="ExchangeCode" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastPayDate" ColumnName="LastPayDate" />
+                <ScalarProperty Name="TxnNumber" ColumnName="TxnNumber" />
+                <ScalarProperty Name="BillMonth" ColumnName="BillMonth" />
+                <ScalarProperty Name="BillYear" ColumnName="BillYear" />
+                <ScalarProperty Name="BTCLAmount" ColumnName="BTCLAmount" />
+                <ScalarProperty Name="OverdueAmount" ColumnName="OverdueAmount" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="BillPayStatus" ColumnName="BillPayStatus" />
+                <ScalarProperty Name="ServiceNumber" ColumnName="ServiceNumber" />
+                <ScalarProperty Name="NewPayStatus" ColumnName="NewPayStatus" />
+                <ScalarProperty Name="CancelReason" ColumnName="CancelReason" />
+                <ScalarProperty Name="CanceledBy" ColumnName="CanceledBy" />
+                <ScalarProperty Name="Canceledon" ColumnName="Canceledon" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Createon" ColumnName="Createon" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+                <ScalarProperty Name="Ureatedby" ColumnName="Ureatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BTCLTxnIDs">
+            <EntityTypeMapping TypeName="BKBTitasModel.BTCLTxnID">
+              <MappingFragment StoreEntitySet="BTCLTxnID">
+                <ScalarProperty Name="BtclSeqID" ColumnName="BtclSeqID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginUsers">
+            <EntityTypeMapping TypeName="BKBTitasModel.LoginUser">
+              <MappingFragment StoreEntitySet="LoginUser">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userPass" ColumnName="userPass" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userRole" ColumnName="userRole" />
+                <ScalarProperty Name="branch_code" ColumnName="branch_code" />
+                <ScalarProperty Name="user_status" ColumnName="user_status" />
+                <ScalarProperty Name="first_login" ColumnName="first_login" />
+                <ScalarProperty Name="makerID" ColumnName="makerID" />
+                <ScalarProperty Name="makerTime" ColumnName="makerTime" />
+                <ScalarProperty Name="checkerID" ColumnName="checkerID" />
+                <ScalarProperty Name="checkerTime" ColumnName="checkerTime" />
+                <ScalarProperty Name="updatedBY" ColumnName="updatedBY" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="UserMobile" ColumnName="UserMobile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainMenus">
+            <EntityTypeMapping TypeName="BKBTitasModel.MainMenu">
+              <MappingFragment StoreEntitySet="MainMenu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="main_menu" ColumnName="main_menu" />
+                <ScalarProperty Name="menuStatus" ColumnName="menuStatus" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeteredBillDetails">
+            <EntityTypeMapping TypeName="BKBTitasModel.MeteredBillDetail">
+              <MappingFragment StoreEntitySet="MeteredBillDetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="transactionStatus" ColumnName="transactionStatus" />
+                <ScalarProperty Name="invoiceNo" ColumnName="invoiceNo" />
+                <ScalarProperty Name="invoiceAmount" ColumnName="invoiceAmount" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="sourceTaxAmount" ColumnName="sourceTaxAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creationTime" ColumnName="creationTime" />
+                <ScalarProperty Name="postingTime" ColumnName="postingTime" />
+                <ScalarProperty Name="bankCode" ColumnName="bankCode" />
+                <ScalarProperty Name="branchCode" ColumnName="branchCode" />
+                <ScalarProperty Name="branchRoutingNo" ColumnName="branchRoutingNo" />
+                <ScalarProperty Name="operator" ColumnName="operator" />
+                <ScalarProperty Name="refNo" ColumnName="refNo" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="cancelOperator" ColumnName="cancelOperator" />
+                <ScalarProperty Name="chalanNo" ColumnName="chalanNo" />
+                <ScalarProperty Name="chalanDate" ColumnName="chalanDate" />
+                <ScalarProperty Name="chalanBank" ColumnName="chalanBank" />
+                <ScalarProperty Name="chalanBranch" ColumnName="chalanBranch" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="updateFlag" ColumnName="updateFlag" />
+                <ScalarProperty Name="updateOperator" ColumnName="updateOperator" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="custAddress" ColumnName="custAddress" />
+                <ScalarProperty Name="issueMonth" ColumnName="issueMonth" />
+                <ScalarProperty Name="issueDate" ColumnName="issueDate" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="settaleDate" ColumnName="settaleDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NonMeterBillDetails">
+            <EntityTypeMapping TypeName="BKBTitasModel.NonMeterBillDetail">
+              <MappingFragment StoreEntitySet="NonMeterBillDetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="bankCode" ColumnName="bankCode" />
+                <ScalarProperty Name="branchCode" ColumnName="branchCode" />
+                <ScalarProperty Name="branchRoutingNo" ColumnName="branchRoutingNo" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="particulars" ColumnName="particulars" />
+                <ScalarProperty Name="bankTransactionId" ColumnName="bankTransactionId" />
+                <ScalarProperty Name="voucherDate" ColumnName="voucherDate" />
+                <ScalarProperty Name="appliancesummary" ColumnName="appliancesummary" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="custAddress" ColumnName="custAddress" />
+                <ScalarProperty Name="billPeriod" ColumnName="billPeriod" />
+                <ScalarProperty Name="batchNo" ColumnName="batchNo" />
+                <ScalarProperty Name="invoiceNo" ColumnName="invoiceNo" />
+                <ScalarProperty Name="invoiceAmount" ColumnName="invoiceAmount" />
+                <ScalarProperty Name="Surcharge" ColumnName="Surcharge" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="sourceTaxAmount" ColumnName="sourceTaxAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+                <ScalarProperty Name="transactionStatus" ColumnName="transactionStatus" />
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creationTime" ColumnName="creationTime" />
+                <ScalarProperty Name="postingTime" ColumnName="postingTime" />
+                <ScalarProperty Name="operator" ColumnName="operator" />
+                <ScalarProperty Name="refNo" ColumnName="refNo" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="cancelOperator" ColumnName="cancelOperator" />
+                <ScalarProperty Name="chalanNo" ColumnName="chalanNo" />
+                <ScalarProperty Name="chalanDate" ColumnName="chalanDate" />
+                <ScalarProperty Name="chalanBank" ColumnName="chalanBank" />
+                <ScalarProperty Name="chalanBranch" ColumnName="chalanBranch" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="updateFlag" ColumnName="updateFlag" />
+                <ScalarProperty Name="updateOperator" ColumnName="updateOperator" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="is_cancel" ColumnName="is_cancel" />
+                <ScalarProperty Name="cancel_reason" ColumnName="cancel_reason" />
+                <ScalarProperty Name="canceled_on" ColumnName="canceled_on" />
+                <ScalarProperty Name="cancel_by" ColumnName="cancel_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="BKBTitasModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="role_priority" ColumnName="role_priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleMenuMappings">
+            <EntityTypeMapping TypeName="BKBTitasModel.RoleMenuMapping">
+              <MappingFragment StoreEntitySet="RoleMenuMapping">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+                <ScalarProperty Name="SubMenuId" ColumnName="SubMenuId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubMenus">
+            <EntityTypeMapping TypeName="BKBTitasModel.SubMenu">
+              <MappingFragment StoreEntitySet="SubMenu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="main_menu_id" ColumnName="main_menu_id" />
+                <ScalarProperty Name="sub_menu_name" ColumnName="sub_menu_name" />
+                <ScalarProperty Name="menu_action" ColumnName="menu_action" />
+                <ScalarProperty Name="menu_controller" ColumnName="menu_controller" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TitasZones">
+            <EntityTypeMapping TypeName="BKBTitasModel.TitasZone">
+              <MappingFragment StoreEntitySet="TitasZone">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="zoneName" ColumnName="zoneName" />
+                <ScalarProperty Name="zoneCode" ColumnName="zoneCode" />
+                <ScalarProperty Name="zoneMobile" ColumnName="zoneMobile" />
+                <ScalarProperty Name="zoneEmail" ColumnName="zoneEmail" />
+                <ScalarProperty Name="isDuplicate" ColumnName="isDuplicate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BankTxnIDSequences">
+            <EntityTypeMapping TypeName="BKBTitasModel.BankTxnIDSequence">
+              <MappingFragment StoreEntitySet="BankTxnIDSequence">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BTCLDailyReports">
+            <EntityTypeMapping TypeName="BKBTitasModel.BTCLDailyReport">
+              <MappingFragment StoreEntitySet="BTCLDailyReport">
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="Createon" ColumnName="Createon" />
+                <ScalarProperty Name="Bill_No__Invoice_ID" ColumnName="Bill No/ Invoice ID" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="BillMonth" ColumnName="BillMonth" />
+                <ScalarProperty Name="BillYear" ColumnName="BillYear" />
+                <ScalarProperty Name="Bill_Amount" ColumnName="Bill Amount" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="TxnNumber" ColumnName="TxnNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BTCLMonthlyReports">
+            <EntityTypeMapping TypeName="BKBTitasModel.BTCLMonthlyReport">
+              <MappingFragment StoreEntitySet="BTCLMonthlyReport">
+                <ScalarProperty Name="Bill_No___Invoice_ID" ColumnName="Bill No./ Invoice ID" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="BillMonth" ColumnName="BillMonth" />
+                <ScalarProperty Name="BillYear" ColumnName="BillYear" />
+                <ScalarProperty Name="Bill_amount" ColumnName="Bill amount" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="TxnNumber" ColumnName="TxnNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeteredReports">
+            <EntityTypeMapping TypeName="BKBTitasModel.MeteredReport">
+              <MappingFragment StoreEntitySet="MeteredReport">
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="refNo" ColumnName="refNo" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="invoiceNo" ColumnName="invoiceNo" />
+                <ScalarProperty Name="invoiceAmount" ColumnName="invoiceAmount" />
+                <ScalarProperty Name="sourceTaxAmount" ColumnName="sourceTaxAmount" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Non_MeteredReport">
+            <EntityTypeMapping TypeName="BKBTitasModel.Non_MeteredReport">
+              <MappingFragment StoreEntitySet="Non_MeteredReport">
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="bankTransactionId" ColumnName="bankTransactionId" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="particulars" ColumnName="particulars" />
+                <ScalarProperty Name="batchNo" ColumnName="batchNo" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="Surcharge" ColumnName="Surcharge" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseBTCLBillDetails" FunctionName="BKBTitasModel.Store.BranchWiseBTCLBillDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseBTCLBillDetails_Result">
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="BillNumber" ColumnName="BillNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TxnNumber" ColumnName="TxnNumber" />
+                <ScalarProperty Name="BillMonth" ColumnName="BillMonth" />
+                <ScalarProperty Name="BillYear" ColumnName="BillYear" />
+                <ScalarProperty Name="BillPayStatus" ColumnName="BillPayStatus" />
+                <ScalarProperty Name="BTCLAmount" ColumnName="BTCLAmount" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseMeterCancelDetails" FunctionName="BKBTitasModel.Store.BranchWiseMeterCancelDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseMeterCancelDetails_Result">
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="refNo" ColumnName="refNo" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="invoiceNo" ColumnName="invoiceNo" />
+                <ScalarProperty Name="invoiceAmount" ColumnName="invoiceAmount" />
+                <ScalarProperty Name="sourceTaxAmount" ColumnName="sourceTaxAmount" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseMeterCustDetails" FunctionName="BKBTitasModel.Store.BranchWiseMeterCustDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseMeterCustDetails_Result">
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="refNo" ColumnName="refNo" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="custAddress" ColumnName="custAddress" />
+                <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+                <ScalarProperty Name="invoiceNo" ColumnName="invoiceNo" />
+                <ScalarProperty Name="invoiceAmount" ColumnName="invoiceAmount" />
+                <ScalarProperty Name="sourceTaxAmount" ColumnName="sourceTaxAmount" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseMeterDetails" FunctionName="BKBTitasModel.Store.BranchWiseMeterDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseMeterDetails_Result">
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="refNo" ColumnName="refNo" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="invoiceNo" ColumnName="invoiceNo" />
+                <ScalarProperty Name="invoiceAmount" ColumnName="invoiceAmount" />
+                <ScalarProperty Name="sourceTaxAmount" ColumnName="sourceTaxAmount" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseMeterSummary" FunctionName="BKBTitasModel.Store.BranchWiseMeterSummary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseMeterSummary_Result">
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="NoOfCollection" ColumnName="NoOfCollection" />
+                <ScalarProperty Name="TotalBillAmo" ColumnName="TotalBillAmo" />
+                <ScalarProperty Name="TotalAIT" ColumnName="TotalAIT" />
+                <ScalarProperty Name="TotalCollection" ColumnName="TotalCollection" />
+                <ScalarProperty Name="TotalRevenueStamp" ColumnName="TotalRevenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseNMDNoteCancelDetails" FunctionName="BKBTitasModel.Store.BranchWiseNMDNoteCancelDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseNMDNoteCancelDetails_Result">
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="bankTransactionId" ColumnName="bankTransactionId" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="particulars" ColumnName="particulars" />
+                <ScalarProperty Name="batchNo" ColumnName="batchNo" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="Surcharge" ColumnName="Surcharge" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseNMDNoteDetails" FunctionName="BKBTitasModel.Store.BranchWiseNMDNoteDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseNMDNoteDetails_Result">
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="bankTransactionId" ColumnName="bankTransactionId" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="particulars" ColumnName="particulars" />
+                <ScalarProperty Name="batchNo" ColumnName="batchNo" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="Surcharge" ColumnName="Surcharge" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseNonMeterCancelDetails" FunctionName="BKBTitasModel.Store.BranchWiseNonMeterCancelDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseNonMeterCancelDetails_Result">
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="bankTransactionId" ColumnName="bankTransactionId" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="particulars" ColumnName="particulars" />
+                <ScalarProperty Name="batchNo" ColumnName="batchNo" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="Surcharge" ColumnName="Surcharge" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseNonMeterCustDetails" FunctionName="BKBTitasModel.Store.BranchWiseNonMeterCustDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseNonMeterCustDetails_Result">
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="custAddress" ColumnName="custAddress" />
+                <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="bankTransactionId" ColumnName="bankTransactionId" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="particulars" ColumnName="particulars" />
+                <ScalarProperty Name="batchNo" ColumnName="batchNo" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="Surcharge" ColumnName="Surcharge" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+                <ScalarProperty Name="BillOrDNote" ColumnName="BillOrDNote" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseNonMeterDetails" FunctionName="BKBTitasModel.Store.BranchWiseNonMeterDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseNonMeterDetails_Result">
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="bankTransactionId" ColumnName="bankTransactionId" />
+                <ScalarProperty Name="transactionDateTime" ColumnName="transactionDateTime" />
+                <ScalarProperty Name="particulars" ColumnName="particulars" />
+                <ScalarProperty Name="batchNo" ColumnName="batchNo" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="Surcharge" ColumnName="Surcharge" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="revenueStamp" ColumnName="revenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseNonMeterDNoteSummary" FunctionName="BKBTitasModel.Store.BranchWiseNonMeterDNoteSummary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseNonMeterDNoteSummary_Result">
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="NoOfTransaction" ColumnName="NoOfTransaction" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="SurCharge" ColumnName="SurCharge" />
+                <ScalarProperty Name="TotalCollection" ColumnName="TotalCollection" />
+                <ScalarProperty Name="TotalRevenueStamp" ColumnName="TotalRevenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseNonMeterDNSummary" FunctionName="BKBTitasModel.Store.BranchWiseNonMeterDNSummary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseNonMeterDNSummary_Result">
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="NoOfTransaction" ColumnName="NoOfTransaction" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="SurCharge" ColumnName="SurCharge" />
+                <ScalarProperty Name="TotalCollection" ColumnName="TotalCollection" />
+                <ScalarProperty Name="TotalRevenueStamp" ColumnName="TotalRevenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchWiseNonMeterSummary" FunctionName="BKBTitasModel.Store.BranchWiseNonMeterSummary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchWiseNonMeterSummary_Result">
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="NoOfTransaction" ColumnName="NoOfTransaction" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="SurCharge" ColumnName="SurCharge" />
+                <ScalarProperty Name="TotalCollection" ColumnName="TotalCollection" />
+                <ScalarProperty Name="TotalRevenueStamp" ColumnName="TotalRevenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BranchZoneNonMeterSummary" FunctionName="BKBTitasModel.Store.BranchZoneNonMeterSummary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.BranchZoneNonMeterSummary_Result">
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="NoOfTransaction" ColumnName="NoOfTransaction" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="SurCharge" ColumnName="SurCharge" />
+                <ScalarProperty Name="TotalCollection" ColumnName="TotalCollection" />
+                <ScalarProperty Name="TotalRevenueStamp" ColumnName="TotalRevenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetBankTxnID" FunctionName="BKBTitasModel.Store.GetBankTxnID" />
+          <FunctionImportMapping FunctionImportName="GetBtclBankTxnID" FunctionName="BKBTitasModel.Store.GetBtclBankTxnID" />
+          <FunctionImportMapping FunctionImportName="GetBTCLTxnSEQUENCE" FunctionName="BKBTitasModel.Store.GetBTCLTxnSEQUENCE" />
+          <FunctionImportMapping FunctionImportName="GetSEQUENCE" FunctionName="BKBTitasModel.Store.GetSEQUENCE" />
+          <FunctionImportMapping FunctionImportName="ZoneWiseSummary" FunctionName="BKBTitasModel.Store.ZoneWiseSummary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.ZoneWiseSummary_Result">
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="NoOfAccount" ColumnName="NoOfAccount" />
+                <ScalarProperty Name="CollectionAmount" ColumnName="CollectionAmount" />
+                <ScalarProperty Name="AITAmount" ColumnName="AITAmount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="RevenueStamp" ColumnName="RevenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ZoneWiseSummaryDNNon" FunctionName="BKBTitasModel.Store.ZoneWiseSummaryDNNon">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.ZoneWiseSummaryDNNon_Result">
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="NoOfAccount" ColumnName="NoOfAccount" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="SurCharge" ColumnName="SurCharge" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="RevenueStamp" ColumnName="RevenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ZoneWiseSummaryNon" FunctionName="BKBTitasModel.Store.ZoneWiseSummaryNon">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BKBTitasModel.ZoneWiseSummaryNon_Result">
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="NoOfAccount" ColumnName="NoOfAccount" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="SurCharge" ColumnName="SurCharge" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="RevenueStamp" ColumnName="RevenueStamp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

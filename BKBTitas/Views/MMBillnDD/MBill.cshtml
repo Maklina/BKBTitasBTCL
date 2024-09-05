@@ -1,0 +1,287 @@
+﻿@model BKBTitas.Models.ViewModel.BillViewModel
+
+@{
+    ViewBag.Title = "Metered Bill";
+}
+
+<h4 style="text-align:center">TITAS Metered GAS Online Bill Collection</h4>
+
+<h4 style="color:green;font-weight:bold">@TempData["sucMsg"]</h4>
+<h4 style="color:red;font-weight:bold">@TempData["errMsg"]</h4>
+<div id="divProcessing" class="modal">
+    <img src="~/Images/ajax-loader.gif" />
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <fieldset class="scheduler-border">
+        <legend style="font-size:15px;font-weight:bold;">Search Customer</legend>
+        <div class="row">
+            <div class="col-md-3" style="color:red;font-weight:bold">
+                @Html.LabelFor(model => model.invoiceNo, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoiceNo, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.invoiceNo, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3" style="color:red;font-weight:bold">
+                @Html.LabelFor(model => model.customerCode, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.customerCode, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.customerCode, "", new { @class = "text-danger" })
+            </div>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#divProcessing").hide();
+                    $("#invoiceNo").focus();
+                    $("#customerCode").prop("readonly", true);
+
+                    $("#invoiceNo").on("change", function () {
+
+                        $("#customerCode").prop("readonly", false);
+                        $("#customerCode").focus();
+
+                        $("#customerCode").on("change", function () {
+                            debugger;
+                            $("#divProcessing").show();
+                            //alert("Calling method");
+                            $.ajax({
+                                type: 'POST',
+                                url: '@Url.Action("getCustomerData")',
+                                dataType: 'json',
+                                data: { customerCode: $("#customerCode").val(), invoiceNo: $("#invoiceNo").val() },
+                                success: function (data) {
+                                    debugger;
+                                    if (data.status == "200") {
+                                        $("#invoiceNo").val(data.data.invoiceNo);
+                                        $("#customerCode").val(data.data.customerCode);
+                                        $("#customerName").val(data.data.customerName);
+                                        $("#invoiceAmount").val(data.data.invoiceAmount);
+                                        $("#paidAmount").val(data.data.invoiceAmount);
+                                        $("#issueDate").val(data.data.issueDate);
+                                        $("#issueMonth").val(data.data.issueMonth);
+                                        $("#settleDate").val(data.data.settleDate);
+                                        $("#zone").val(data.data.zone);
+                                        $("#refNo").val(data.data.refNo);
+                                        $("#sourceTaxAmount").val(0);
+
+                                        $("#invoiceNo").prop("readonly", true);
+                                        $("#customerCode").prop("readonly", true);
+                                        $("#customerName").prop("readonly", true);
+                                        $("#issueDate").prop("readonly", true);
+                                        $("#issueMonth").prop("readonly", true);
+                                        $("#settleDate").prop("readonly", true);
+                                        $("#zone").prop("readonly", true);
+                                        $("#refNo").prop("readonly", true);
+                                        $("#invoiceAmount").prop("readonly", true);
+                                        $("#paidAmount").prop("readonly", true);
+
+                                        console.log(data);
+                                        $("#divProcessing").hide();
+                                    } else {
+                                        $("#invoiceNo").val("");
+                                        $("#customerCode").val("");
+                                        $("#customerCode").prop("readonly", true);
+                                        $("#customerName").prop("readonly", false);
+                                        $("#issueMonth").prop("readonly", false);
+                                        $("#settleDate").prop("readonly", false);
+                                        $("#zone").prop("readonly", false);
+                                        $("#invoiceAmount").prop("readonly", false);
+                                        $("#divProcessing").hide();
+                                        alert(data.status + " " + data.message);
+                                    }
+                                },
+                                error: function (ex) {
+                                    //$("#customerMobile").val('');
+                                    $("#divProcessing").hide();
+                                    alert('No Data Found');
+                                }
+                            });
+                            return false;
+                        });
+                    });
+                });
+            </script>
+        </div>
+    </fieldset>
+        <fieldset class="scheduler-border">
+            <legend style="font-size:15px;font-weight:bold;">Customer Details</legend>
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.customerName, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.customerName, new { htmlAttributes = new { @class = "form-control input-sm", @readonly="true" } })
+                    @Html.ValidationMessageFor(model => model.customerName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.issueMonth, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.issueMonth, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+                    @Html.ValidationMessageFor(model => model.issueMonth, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.issueDate, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.issueDate, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+                    @Html.ValidationMessageFor(model => model.issueDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.zone, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.zone, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+                    @Html.ValidationMessageFor(model => model.zone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="scheduler-border">
+            <legend style="font-size:15px;font-weight:bold;">Transaction Details</legend>
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.invoiceAmount, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.invoiceAmount, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+                    @Html.ValidationMessageFor(model => model.invoiceAmount, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3" style="color:red;font-weight:bold">
+                    @Html.LabelFor(model => model.sourceTaxAmount, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.sourceTaxAmount, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off" } })
+                </div>
+                <div class="col-md-3">
+                    @Html.Label("Paid Total Amount", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.paidAmount, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = "true" } })
+                    @Html.ValidationMessageFor(model => model.paidAmount, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3" style="color:red;font-weight:bold">
+                    @Html.Label("Confirm Paid Amount", htmlAttributes: new { @class = "control-label" })*
+                    @Html.EditorFor(model => model.totalAmount, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off" } })
+                    @Html.ValidationMessageFor(model => model.totalAmount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.chalanNo, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.chalanNo, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off" } })
+                    @Html.ValidationMessageFor(model => model.chalanNo, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.chalanDate, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.chalanDate, new { htmlAttributes = new { @class = "form-control input-sm", @type = "date", @autocomplete = "off" } })
+                    @Html.ValidationMessageFor(model => model.chalanDate, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.chalanBank, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.chalanBank, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    @Html.ValidationMessageFor(model => model.chalanBank, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.chalanBranch, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.chalanBranch, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    @Html.ValidationMessageFor(model => model.chalanBranch, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.refNo, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.refNo, new { htmlAttributes = new { @class = "form-control input-sm", @autocomplete = "off" } })
+                    @Html.ValidationMessageFor(model => model.refNo, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.reason, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.reason, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    @Html.ValidationMessageFor(model => model.reason, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </fieldset>
+        <br/>
+        <div class="row">
+            <div class="col-md-3">
+                <input type="submit" value="Submit" id="btnSubmit" class="btn btn-default btn-primary" />
+            </div>
+        </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#sourceTaxAmount").change(function () {
+            debugger;
+            var aitAmount = parseFloat($("#sourceTaxAmount").val());
+            var total = parseFloat($("#invoiceAmount").val()) - aitAmount;
+            var total = total.toFixed(2);
+            $("#paidAmount").val(total);
+        });
+
+        $("#totalAmount").change(function () {
+            debugger;
+            var paidAmount = parseFloat($("#paidAmount").val());
+            var totalAmount = parseFloat($("#totalAmount").val());
+            if (totalAmount != paidAmount) {
+                $("#totalAmount").val("");
+                alert("Confirm total and paid amount is not same. Please check");
+                return false;
+            }
+        });
+        $("#btnSubmit").click(function () {
+            debugger;
+            var message = validateInput();
+            if (message == "true") {
+                confirm("Do you want to continue?");
+                $("#divProcessing").show();
+            } else {
+                alert(message);
+                return false;
+            }
+        });
+    });
+    function validateInput() {
+        debugger;
+        var message = "";
+        var totalAmount = $("#totalAmount").val();
+        if (totalAmount.length == 0) {
+            message = message + "Please input confirm total.*\n";
+        }
+
+        var paidAmount = parseFloat($("#paidAmount").val());
+
+        if (totalAmount != paidAmount) {
+            message = message + "Total amount and confirm amount is not same.*\n";
+        }
+
+        var refNo = $("#refNo").val();
+        if (refNo.length == 0) {
+            message = message + "Please input refNo/Trance No.*\n";
+        }
+
+        var customerCode = $("#customerCode").val();
+        if (customerCode.length == 0) {
+            message = message + "Please input customer code.*\n";
+        }
+
+        var invoiceNo = $("#invoiceNo").val();
+        if (invoiceNo.length == 0) {
+            message = message + "Please input invoice No.*\n";
+        }
+
+        var aitAmount = parseFloat($("#sourceTaxAmount").val());
+        if (aitAmount > 0) {
+            var chalanNo = $("#chalanNo").val();
+            if (chalanNo.length == 0) {
+                message = message + "Please input challan no.\n";
+            }
+            var chalanDate = $("#chalanDate").val();
+            if (chalanDate.length == 0) {
+                message = message + "Please input chalan Date.\n";
+            }
+
+            var chalanBank = $("#chalanBank").val();
+            if (chalanBank.length == 0) {
+                message = message + "Please input chalan Bank.\n";
+            }
+            var chalanBranch = $("#chalanBranch").val();
+            if (chalanBranch.length == 0) {
+                message = message + "Please input chalan Branch.\n";
+            }
+        }
+        return message.length == 0 ? "true" : message;
+    }
+</script>
+
+

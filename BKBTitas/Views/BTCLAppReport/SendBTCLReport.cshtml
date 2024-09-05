@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "SendReport";
+}
+
+<h4>Send Report to BTCL Office</h4>
+<br />
+<h3>@TempData["retMsg"]</h3>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-2">
+            @Html.Label("Send Report to", htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-md-2">
+            @Html.Editor("rptDate", new { htmlAttributes = new { @class = "form-control", @type = "date", @placeholder = "YYYY-MM-DD", pattern = "[0-9]{4}-[0-9]{2}-[0-9]{2}", @autocomplete = "off" } })
+        </div>
+        <div class="form-group col-md-2">
+            <input type="submit" class="btn btn-primary" value="Send" />
+        </div>
+    </div>
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

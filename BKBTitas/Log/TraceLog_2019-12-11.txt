@@ -1,0 +1,6 @@
+2019-12-11 11:14:51,391 [10] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-11 11:14:53,578 [10] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-11 11:20:39,529 [15] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-11 11:20:39,717 [15] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1
+2019-12-11 11:30:10,122 [18] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:bkbmg4102 from IP:::1
+2019-12-11 11:30:11,747 [18] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:bkbmg4102 from IP:::1

@@ -1,0 +1,325 @@
+2021-10-05 15:23:51,741 [6] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-10-05 15:23:54,500 [6] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-10-05 15:25:29,329 [5] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
+2021-10-05 15:29:44,506 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-10-05 15:29:46,513 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-10-05 15:30:28,482 [5] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
+2021-10-05 15:31:15,351 [9] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
+2021-10-05 15:32:56,582 [7] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
+2021-10-05 15:34:20,964 [9] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
+2021-10-05 15:36:07,504 [9] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
+2021-10-05 15:38:06,848 [17] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
+2021-10-05 16:05:00,731 [39] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
+2021-10-05 16:07:10,059 [36] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
+2021-10-05 16:08:02,057 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-10-05 16:08:03,652 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-10-05 16:08:34,141 [5] ERROR BKBTitas.Controllers.BTCLController - ErrorThere was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
+2021-10-05 16:09:18,579 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-10-05 16:09:19,911 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-10-05 16:09:52,943 [7] ERROR BKBTitas.Controllers.BTCLController - ErrorThere was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
+2021-10-05 16:12:02,417 [5] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-10-05 16:12:04,204 [5] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-10-05 16:13:05,341 [5] ERROR BKBTitas.Controllers.BTCLController - ErrorThere was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
+2021-10-05 16:36:52,325 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-10-05 16:36:54,758 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-10-05 16:37:50,734 [8] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
+2021-10-05 16:39:43,713 [7] DEBUG BKBTitas.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2021-10-05 16:39:51,506 [7] DEBUG BKBTitas.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2021-10-05 16:41:42,911 [8] ERROR BKBTitas.Controllers.BTCLController - Error:System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://10.73.10.29:8080/services/CrmWebServices.CrmWebServicesHttpSoap11Endpoint/ that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.73.10.29:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request)
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortType.Token(TokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1956
+   at BKBTitas.SvcRef_BTCLBoss.CrmWebServicesPortTypeClient.Token(tAuthHeader AuthHeader, tTokenRequest TokenRequest1, Int64& ResponseCode, String& Message) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Service References\SvcRef_BTCLBoss\Reference.cs:line 1963
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GenerateTokenBoss(tAuthHeader header, tTokenRequest request) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 29
+   at BKBTitas.Models.AppManager.BTCLTokenManager.GetToken(tAuthHeader header, tTokenRequest request, String& outErr) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Models\AppManager\BTCLTokenManager.cs:line 18
+   at BKBTitas.Controllers.BTCLController.Index(BTCLBillRequestModel billReq) in F:\BTCL Bill Collection\BKBTitas\BKBTitas\Controllers\BTCLController.cs:line 64
